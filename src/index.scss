@@ -1,3 +1,5 @@
+$contentWidth: 80rem;
+
 *{
     margin: 0;
 }
@@ -37,6 +39,7 @@ body,
 }
 
 #metaBallsWrapper{
+  z-index: -2;
   position: absolute;
   top: 0;
   left: 0;
@@ -50,12 +53,33 @@ body,
 }
 
 main {
+  z-index: 0;
   position: absolute;
   overflow: auto;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+.inner{
+    margin-left: auto;
+    margin-right: auto;
+    width: $contentWidth;
+    max-width: 94%;
+}
+
+nav{
+    background-color: red;
+    z-index: -1;
+    width: 100%;
+    display: block;
+    height: 3rem;
+    position: fixed;
+    .inner{
+        height: 100%;
+        background-color: red;
+    }
 }
 
 #welcomeSection{
@@ -86,13 +110,19 @@ button{
     font-size: 1.4rem;
 }
 
+.callToAction{
+    transition: transform 0.4s;
+}
+
 .hoverScale:hover{
-    display: none;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 #portfolioSection{
   height: 100%;
+  .inner{
+      padding-top: 6rem;
+  }
 }
 .fadeInColor{
   animation: colorAnimation 3s forwards;

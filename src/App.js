@@ -2,6 +2,7 @@ import React, {useRef, useState, useEffect} from 'react';
 import MetaBallsWrapper from './components/MetaBallsWrapper';
 import PortfolioSection from './components/PortfolioSection';
 import WelcomeSection from './components/WelcomeSection';
+import Nav from './components/Nav';
 
 
 
@@ -25,6 +26,7 @@ function App() {
     const scrollP=event.target.scrollTop / event.target.clientHeight;
     
     setScroll(scrollP);
+    /* hide the webGL background if the second page is fully visible */
     if(showBG && scrollP>=1){
       setBG(false);
     }
@@ -48,8 +50,8 @@ function App() {
       {showBG&&
         <MetaBallsWrapper/>
       }
-
-      <main style={{backgroundColor: `rgba(200, 130, 100, ${scrollToOpacity})`}} ref={mainScrollRef}>
+      <main style={{backgroundColor: `rgba(240, 240, 240, ${scrollToOpacity})`}} ref={mainScrollRef}>
+        <Nav/>
         <WelcomeSection scrollToPortfolio={scrollToPortfolio}/>
         <PortfolioSection ref={portfolioSectionRef}/>
       </main>
