@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 
-const PortfolioSection = ({fadeIn}) => {
+const PortfolioSection = forwardRef((props, ref) => {
     return (
-        <section className={fadeIn? 'fadeInColor': ''} id="portfolioSection">
+        <section ref={ref} /* className={fadeIn? 'fadeInColor': ''} */ id="portfolioSection">
             
         </section>
     )
-}
+})
 
 export default PortfolioSection

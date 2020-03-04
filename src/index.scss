@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+}
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+
+.App {
+  position: relative;
+  overflow: hidden;
+}
+
+
+.flexCenterAll{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerText{
+    text-align: center;
+}
+
+.contentDiv {
+  /* background-color: rgba(100,100,100,0.4); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 4rem;
+  color: white;
+}
+
+#metaBallsWrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 2s;
+}
+
+.fadeOutMetaBalls{
+  opacity: 0;
+}
+
+main {
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#welcomeSection{
+  height: 100%;
+  *{
+    color: rgb(240, 240, 240);
+  }
+  h1{
+      font-size: 4rem;
+      margin: 0.2rem;
+  }
+  h3{
+      font-size: 1.8rem;
+  }
+  button{
+      padding: 0.6rem 1rem;
+      display: block;
+      margin: 2rem auto 0 auto;
+      background-color: rgb(201, 14, 85);
+      font-weight: bold;
+      cursor: pointer;
+  }
+}
+
+button{
+    border: none;
+    /* border-radius: 0.2rem; */
+    font-size: 1.4rem;
+}
+
+.hoverScale:hover{
+    display: none;
+    transform: scale(1.1);
+}
+
+#portfolioSection{
+  height: 100%;
+}
+.fadeInColor{
+  animation: colorAnimation 3s forwards;
+
+}
+
+@keyframes colorAnimation{
+  from {
+    background-color: transparent;
+  }
+  to{
+    background-color: rgb(139, 64, 224);
+  }
+}
+
+

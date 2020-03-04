@@ -5,15 +5,11 @@ const metaConfig = new Array(20).fill(0);
 
 let hideTimeOut=null;
 
-const MetaBallsWrapper = ({fadeOut, showBG}) => {
-    if(fadeOut){
-        hideTimeOut=setTimeout(()=>showBG(false), 3000);
-    }else{
-        clearTimeout(hideTimeOut);
-    }
+const MetaBallsWrapper = () => {
+    
 
     return (
-        <div className={fadeOut? 'fadeOutMetaBalls' : ''} id="metaBallsWrapper">
+        <div id="metaBallsWrapper">
             <MetaBalls
                 innerContainer={<div style={{ marginTop: "3rem", width: "100%", maxWidth: "100%" }} />}
                 shiftColor={{ min: 10, max: 60 }}

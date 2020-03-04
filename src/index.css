@@ -1,9 +1,12 @@
+* {
+  margin: 0;
+}
+
 html,
 body,
 #root,
 .App {
   height: 100%;
-  margin: 0;
 }
 
 .App {
@@ -11,34 +14,50 @@ body,
   overflow: hidden;
 }
 
-
-.flexCenterAll{
+.flexCenterAll {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.centerText {
+  text-align: center;
 }
 
 .contentDiv {
   /* background-color: rgba(100,100,100,0.4); */
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: bold;
   font-size: 4rem;
   color: white;
 }
 
-#metaBallsWrapper{
+#metaBallsWrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-transition: opacity 2s;
   transition: opacity 2s;
 }
 
-.fadeOutMetaBalls{
+.fadeOutMetaBalls {
   opacity: 0;
 }
 
@@ -51,25 +70,68 @@ main {
   width: 100%;
 }
 
-#welcomePage{
+#welcomeSection {
   height: 100%;
 }
 
-#portfolioSection{
+#welcomeSection * {
+  color: #f0f0f0;
+}
+
+#welcomeSection h1 {
+  font-size: 4rem;
+  margin: 0.2rem;
+}
+
+#welcomeSection h3 {
+  font-size: 1.8rem;
+}
+
+#welcomeSection button {
+  padding: 0.6rem 1rem;
+  display: block;
+  margin: 2rem auto 0 auto;
+  background-color: #c90e55;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  /* border-radius: 0.2rem; */
+  font-size: 1.4rem;
+}
+
+.hoverScale:hover {
+  display: none;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#portfolioSection {
   height: 100%;
 }
-.fadeInColor{
-  animation: colorAnimation 3s forwards;
 
+.fadeInColor {
+  -webkit-animation: colorAnimation 3s forwards;
+          animation: colorAnimation 3s forwards;
 }
 
-@keyframes colorAnimation{
+@-webkit-keyframes colorAnimation {
   from {
     background-color: transparent;
   }
-  to{
-    background-color: rgb(139, 64, 224);
+  to {
+    background-color: #8b40e0;
   }
 }
 
-
+@keyframes colorAnimation {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: #8b40e0;
+  }
+}
+/*# sourceMappingURL=index.css.map */

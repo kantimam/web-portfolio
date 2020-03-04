@@ -1,12 +1,17 @@
 import React, {useRef, useState, useEffect} from 'react';
 import MetaBallsWrapper from './components/MetaBallsWrapper';
 import PortfolioSection from './components/PortfolioSection';
+import WelcomeSection from './components/WelcomeSection';
+
+
 
 
 function App() {
   const [showBG, setBG]=useState(true);
-  const [fadeOut, setFadeOut]=useState(false);
+  const [scrollPercent, setScroll]=useState(0);
+
   const mainScrollRef=useRef(null);
+  const portfolioSectionRef=useRef(null);
 
   useEffect(() => {
     const currentRef=mainScrollRef.current;
@@ -14,34 +19,39 @@ function App() {
     return () => {
       currentRef.removeEventListener('scroll',handleScroll)
     };
-  }, [fadeOut, showBG])
+  }, [showBG, scrollPercent])
 
   const handleScroll=(event)=>{
-    if(showBG && event.target.scrollTop>=event.target.clientHeight){
-      setFadeOut(true);
+    const scrollP=event.target.scrollTop / event.target.clientHeight;
+    
+    setScroll(scrollP);
+    if(showBG && scrollP>=1){
+      setBG(false);
     }
     else{
-      setFadeOut(false);
       setBG(true);
     }
   }
 
-  const closeIfValid=()=>{
-    if(fadeOut){      
-      setBG(false);
-    }
+  const scrollToPortfolio=()=>{
+    portfolioSectionRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
   }
 
+  
+
+  const scrollToOpacity=scrollPercent>1? 1 : scrollPercent*scrollPercent;
   return (
     <div className="App">
       {showBG&&
-        <MetaBallsWrapper showBG={closeIfValid} fadeOut={fadeOut}/>
+        <MetaBallsWrapper/>
       }
-      <main ref={mainScrollRef}>
-        <section className="flexCenterAll" id="welcomePage">
-          ASD
-        </section>
-        <PortfolioSection  fadeIn={fadeOut}/>
+
+      <main style={{backgroundColor: `rgba(200, 130, 100, ${scrollToOpacity})`}} ref={mainScrollRef}>
+        <WelcomeSection scrollToPortfolio={scrollToPortfolio}/>
+        <PortfolioSection ref={portfolioSectionRef}/>
       </main>
     </div>
   );
