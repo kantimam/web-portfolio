@@ -39,7 +39,6 @@ body,
 }
 
 #metaBallsWrapper{
-  z-index: -2;
   position: absolute;
   top: 0;
   left: 0;
@@ -53,13 +52,13 @@ body,
 }
 
 main {
-  z-index: 0;
   position: absolute;
   overflow: auto;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+  scrollbar-width: thin;
 }
 
 .inner{
@@ -71,8 +70,7 @@ main {
 
 nav{
     background-color: red;
-    z-index: -1;
-    width: 100%;
+    width: calc(100% - 1.2rem);
     display: block;
     height: 3rem;
     position: fixed;
