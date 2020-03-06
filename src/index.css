@@ -1,5 +1,7 @@
 * {
   margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html,
@@ -11,7 +13,6 @@ body,
 
 .App {
   position: relative;
-  overflow: hidden;
 }
 
 .flexCenterAll {
@@ -48,7 +49,7 @@ body,
 }
 
 #metaBallsWrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -62,13 +63,13 @@ body,
 }
 
 main {
-  position: absolute;
-  overflow: auto;
-  top: 0;
-  left: 0;
-  height: 100%;
+  z-index: 1;
+  position: relative;
   width: 100%;
-  scrollbar-width: thin;
+}
+
+main section {
+  min-height: 100vh;
 }
 
 .inner {
@@ -80,19 +81,16 @@ main {
 
 nav {
   background-color: red;
-  width: calc(100% - 1.2rem);
+  width: 100%;
   display: block;
   height: 3rem;
   position: fixed;
+  z-index: 2;
 }
 
 nav .inner {
   height: 100%;
   background-color: red;
-}
-
-#welcomeSection {
-  height: 100%;
 }
 
 #welcomeSection * {
@@ -135,12 +133,8 @@ button {
           transform: scale(1.05);
 }
 
-#portfolioSection {
-  height: 100%;
-}
-
 #portfolioSection .inner {
-  padding-top: 6rem;
+  padding-top: 4.2rem;
 }
 
 .fadeInColor {

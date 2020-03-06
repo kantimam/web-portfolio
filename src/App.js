@@ -46,12 +46,13 @@ function App() {
 
   const scrollToOpacity=scrollPercent>1? 1 : scrollPercent*scrollPercent;
   return (
-    <div className="App">
+    <div  ref={mainScrollRef} className="App">
       {showBG&&
         <MetaBallsWrapper/>
       }
-      <main style={{backgroundColor: `rgba(240, 240, 240, ${scrollToOpacity})`}} ref={mainScrollRef}>
-        <Nav/>
+      <Nav/>
+      <main style={{backgroundColor: `rgba(240, 240, 240, ${scrollToOpacity})`}}>
+        
         <WelcomeSection scrollToPortfolio={scrollToPortfolio}/>
         <PortfolioSection ref={portfolioSectionRef}/>
       </main>
