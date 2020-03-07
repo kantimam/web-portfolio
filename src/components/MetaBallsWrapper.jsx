@@ -3,7 +3,6 @@ import MetaBalls from '../metaballs'
 
 const metaConfig = new Array(20).fill(0);
 
-let hideTimeOut=null;
 
 const MetaBallsWrapper = () => {
     

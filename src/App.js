@@ -11,11 +11,11 @@ function App() {
   const [showBG, setBG]=useState(true);
   const [scrollPercent, setScroll]=useState(0);
 
-  const mainScrollRef=useRef(null);
   const portfolioSectionRef=useRef(null);
 
   useEffect(() => {
-    const currentRef=mainScrollRef.current;
+    const currentRef=document;
+    
     currentRef.addEventListener('scroll',handleScroll);
     return () => {
       currentRef.removeEventListener('scroll',handleScroll)
@@ -23,8 +23,9 @@ function App() {
   }, [showBG, scrollPercent])
 
   const handleScroll=(event)=>{
-    const scrollP=event.target.scrollTop / event.target.clientHeight;
-    
+    const scrollTop=event.target.scrollTop || window.scrollY;
+    const scrollP=scrollTop / document.body.clientHeight;    
+
     setScroll(scrollP);
     /* hide the webGL background if the second page is fully visible */
     if(showBG && scrollP>=1){
@@ -46,13 +47,12 @@ function App() {
 
   const scrollToOpacity=scrollPercent>1? 1 : scrollPercent*scrollPercent;
   return (
-    <div  ref={mainScrollRef} className="App">
+    <div className="App">
       {showBG&&
         <MetaBallsWrapper/>
       }
       <Nav/>
-      <main style={{backgroundColor: `rgba(240, 240, 240, ${scrollToOpacity})`}}>
-        
+      <main /* ref={mainScrollRef} */ style={{backgroundColor: `rgba(240, 240, 240, ${scrollToOpacity})`}}>
         <WelcomeSection scrollToPortfolio={scrollToPortfolio}/>
         <PortfolioSection ref={portfolioSectionRef}/>
       </main>

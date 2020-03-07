@@ -9,9 +9,9 @@ export default ()=>{
     const [projects, setProjects]=useState(initialProjects)
     return (
         <div>
-            {projects.map(p=>{
+            {projects.map(p=>
                 <ProjectsItem project={p}/>
-            })}
+            )}
         </div>
     )
 }

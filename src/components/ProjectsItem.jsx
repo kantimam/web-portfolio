@@ -1,5 +1,6 @@
 import React from 'react'
 import ProjectDescription from './ProjectDescription'
+import ProjectImage from './ProjectImage'
 
 const ProjectsItem = ({project}) => {
     return (

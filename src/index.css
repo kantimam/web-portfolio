@@ -12,7 +12,7 @@ body,
 }
 
 .App {
-  position: relative;
+  /* position: relative; */
 }
 
 .flexCenterAll {
@@ -63,13 +63,13 @@ body,
 }
 
 main {
-  z-index: 1;
   position: relative;
+  z-index: 1;
   width: 100%;
 }
 
 main section {
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .inner {

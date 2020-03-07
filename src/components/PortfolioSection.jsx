@@ -1,4 +1,5 @@
 import React, {forwardRef} from 'react'
+import ProjectList from './ProjectList'
 
 const PortfolioSection = forwardRef((props, ref) => {
     return (
