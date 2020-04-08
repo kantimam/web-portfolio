@@ -14,17 +14,15 @@ function App() {
   const portfolioSectionRef = useRef(null);
 
   useEffect(() => {
-    const scrollContainer = document;
-    scrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      scrollContainer.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', handleScroll)
     };
   }, [showBG, scrollPercent])
 
-  const handleScroll = (event) => {
+  const handleScroll = () => {
     
     const scrollP = window.scrollY / window.innerHeight;
-    console.log(scrollP);
     
     setScroll(scrollP);
     /* hide the webGL background if the second page is fully visible */
