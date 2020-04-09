@@ -26,11 +26,11 @@ function App() {
     
     setScroll(scrollP);
     /* hide the webGL background if the second page is fully visible */
-    if (showBG && scrollP >= 1) {
-      setBG(false);
+    if (scrollP >= 1) {
+      if(showBG) setBG(false);
     }
     else {
-      setBG(true);
+      if(!showBG) setBG(true);
     }
   }
 

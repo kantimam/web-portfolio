@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProjectDescription = ({description}) => {
     return (
-        <div>
+        <div className="projectDescription">
             <h1>{description.title}</h1>
             <p>{description.text}</p>
             <div className="projectLinksWrapper">

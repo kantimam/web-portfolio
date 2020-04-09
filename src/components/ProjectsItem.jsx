@@ -2,11 +2,11 @@ import React from 'react'
 import ProjectDescription from './ProjectDescription'
 import ProjectImage from './ProjectImage'
 
-const ProjectsItem = ({project}) => {
+const ProjectsItem = ({ project }) => {
     return (
-        <div className="projectsItem">
-            <ProjectDescription description={project.description}/>
-            <ProjectImage image={project.image}/>
+        <div className="projectItem">
+            <ProjectImage image={project.image} />
+            <ProjectDescription description={project.description} />
         </div>
     )
 }
