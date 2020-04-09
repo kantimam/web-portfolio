@@ -6,7 +6,7 @@ const ProjectsItem = ({ project }) => {
     return (
         <div className="projectItem">
             <ProjectImage image={project.image} />
-            <ProjectDescription description={project.description} />
+            <ProjectDescription {...project} />
         </div>
     )
 }

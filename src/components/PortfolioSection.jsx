@@ -7,7 +7,7 @@ const PortfolioSection = forwardRef((props, ref) => {
             <div className="inner">
                 <h1 className="centerText">{"<PROJECTS>"}</h1>
                 <ProjectList/>
-                <h1 className="centerText">{"</PROJECTS>"}</h1>
+                {/* <h1 className="centerText">{"</PROJECTS>"}</h1> */}
             </div>
         </section>
     )

@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 * {
   margin: 0;
   -webkit-box-sizing: border-box;
@@ -72,7 +76,7 @@ main > section {
 }
 
 nav {
-  /* background-color: red; */
+  background-color: rgba(39, 39, 39, 0.384);
   width: 100%;
   display: block;
   height: 3rem;
@@ -93,7 +97,8 @@ nav .inner {
   border-radius: 30rem;
   height: 40rem;
   width: 40rem;
-  background-image: radial-gradient(rgba(79, 5, 92, 0.5) 30%, transparent 70%);
+  max-width: 100%;
+  background-image: radial-gradient(rgba(79, 5, 92, 0.5) 40%, transparent 70%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -104,6 +109,71 @@ nav .inner {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+#welcomeSection .welcomeWrapper:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  border-radius: 100%;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.7) 30%, transparent 70%);
+  -webkit-transform: translateZ(-1px);
+          transform: translateZ(-1px);
+  -webkit-animation: expandBubble 8s infinite ease-in-out;
+          animation: expandBubble 8s infinite ease-in-out;
+  -webkit-transition: 3s;
+  transition: 3s;
+}
+
+#welcomeSection .welcomeWrapper:hover:after {
+  background-color: rgba(119, 16, 214, 0.349);
+  -webkit-filter: blur(22px);
+          filter: blur(22px);
+}
+
+@-webkit-keyframes expandBubble {
+  0% {
+    opacity: 0.9;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+  66% {
+    opacity: 0.7;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.9;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+}
+
+@keyframes expandBubble {
+  0% {
+    opacity: 0.9;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+  66% {
+    opacity: 0.7;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.9;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
 }
 
 #welcomeSection h1 {
@@ -179,11 +249,11 @@ button {
 }
 
 #portfolioSection .inner {
-  padding-top: 3rem;
+  padding: 3rem 0;
 }
 
 .projectList {
-  padding: 0.4rem 0 1.2rem 0;
+  padding: 0.4rem 0 2.2rem 0;
 }
 
 .projectItem {
@@ -221,15 +291,64 @@ button {
   height: calc(100% - 1.4rem);
   border-top-right-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
-  padding: 0.6rem 1rem;
+  padding: 0.8rem 1rem;
   -webkit-box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85;
           box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85;
+  background-color: rgba(240, 240, 240, 0.5);
   font-size: 1.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.projectItem .projectDescription h1 {
+  text-transform: uppercase;
+}
+
+.projectItem .projectDescription p {
+  margin: 1rem 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.projectItem .projectDescription .techStackList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.projectItem .projectDescription .techStackList div {
+  margin-right: 1.4rem;
 }
 
 /* .fancyShadow {
   box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem #fff, inset 1rem 1rem 1rem hsla(0,0%,100%,.25);
 } */
+.moreProjects {
+  cursor: pointer;
+  height: 10rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.moreProjects:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, transparent), color-stop(70%, #f0f0f0));
+  background-image: linear-gradient(transparent 20%, #f0f0f0 70%);
+}
+
 @media (max-width: 1020px) {
   .projectItem .projectDescription {
     height: 100%;
@@ -249,7 +368,27 @@ button {
     min-height: 12rem;
     -webkit-box-shadow: unset;
             box-shadow: unset;
-    padding: 0.1rem 0.4rem;
+    padding: 0.2rem 0.4rem;
+  }
+  .moreProjects:after {
+    font-size: 2.2rem;
+    font-weight: bold;
+    content: "LOAD MORE";
+    text-align: center;
+    line-height: 10rem;
+  }
+  .welcomeWrapper {
+    width: 20rem !important;
+    height: 20rem !important;
+  }
+  .welcomeWrapper h1 {
+    font-size: 2.4rem !important;
+  }
+  .welcomeWrapper h3 {
+    font-size: 1.4rem !important;
+  }
+  .welcomeWrapper button {
+    font-size: 1.4rem !important;
   }
 }
 /*# sourceMappingURL=index.css.map */
