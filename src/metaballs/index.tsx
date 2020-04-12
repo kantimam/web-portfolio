@@ -3,12 +3,12 @@ import * as React from 'react';
 import { MetaBalls as MetaBallsRenderer } from './metaballsLogic';
 
 
-interface minMax{
+export interface minMax{
   min: number;
   max: number;
 }
 
-type propTypes = {
+export type propTypes = {
   orbData?: Array<{
     size?: number;
 
@@ -30,7 +30,7 @@ type propTypes = {
 }
 
 
-const defaultInnerContainer=<div className="metaBalls-innerContainer" style={{width: "100%", height: "100%"}}/>
+export const defaultInnerContainer=<div className="metaBalls-innerContainer" style={{width: "100%", height: "100%"}}/>
 
 
 

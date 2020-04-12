@@ -2,7 +2,6 @@
   "name": "metaball-example",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://kantimam.github.io/webgl-metaballs-publish/",
   "dependencies": {
     "@types/react": "^16.9.11",
     "gh-pages": "^2.2.0",

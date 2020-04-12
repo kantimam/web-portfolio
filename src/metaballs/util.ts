@@ -3,11 +3,22 @@ import Orb from './Orb'
 
 
 export const checkCollisionRect=(orb: Orb, top: number, right: number, bottom: number, left: number, onCollisionX: Function, onCollisionY: Function):void=>{
-    if(orb.positionX>right && orb.lastCollision!=2) {orb.lastCollision=2; onCollisionX(orb)};
-    if(orb.positionX<left && orb.lastCollision!=4) {orb.lastCollision=4; onCollisionX(orb)};
+    if(orb.positionX>right && orb.lastCollision!==2) {orb.lastCollision=2; onCollisionX(orb)};
+    if(orb.positionX<left && orb.lastCollision!==4) {orb.lastCollision=4; onCollisionX(orb)};
 
-    if(orb.positionY>bottom && orb.lastCollision!=3) {orb.lastCollision=3; onCollisionY(orb)};
-    if(orb.positionY<top && orb.lastCollision!=1) {orb.lastCollision=1; onCollisionY(orb)};
+    if(orb.positionY>bottom && orb.lastCollision!==3) {orb.lastCollision=3; onCollisionY(orb)};
+    if(orb.positionY<top && orb.lastCollision!==1) {orb.lastCollision=1; onCollisionY(orb)};
+}
+
+
+export const checkAreaRect=(orb: Orb, top: number, right: number, bottom: number, left: number):void=>{
+    const marginY=190;
+    const marginX=260;
+    if(orb.positionX>(right-marginX)) {orb.lastCollision=2; orb.reflectRight(marginX)};
+    if(orb.positionX<(left+marginX)) {orb.lastCollision=4; orb.reflectLeft(marginX)};
+
+    if(orb.positionY>(bottom-marginY)) {orb.lastCollision=3; orb.reflectBottom(marginY)};
+    if(orb.positionY<(top+marginY)) {orb.lastCollision=1; orb.reflectTop(marginY)};
 }
 
 export const switchColor=(orb: Orb)=>{

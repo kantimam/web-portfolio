@@ -41,6 +41,21 @@ export default class Orb {
         this.moveY*=-1;
     }
 
+
+    reflectTop(margin:number){
+        /* this.moveY+=(Math.abs(this.moveY) / margin); */
+        this.moveY+=0.1;
+    }
+    reflectRight(margin:number){
+        this.moveX-=0.15;
+    }
+    reflectBottom(margin:number){
+        this.moveY-=0.1;
+    }
+    reflectLeft(margin:number){
+        this.moveX+=0.15;
+    }
+
     deflectMovementY(min: number, max: number): void {
         this.moveY = this.moveY > 0 ? randomInRange(min, max) : -1 * randomInRange(min, max)
     }

@@ -1,12 +1,12 @@
 import { frag, vert } from './shaders';
 import Orb from './Orb';
-import { checkCollisionRect, createShaderProgram, randomInRange } from './util';
+import { checkAreaRect, checkCollisionRect, createShaderProgram, randomInRange } from './util';
 
-interface minMax {
+export interface minMax {
     min: number;
     max: number;
 }
-interface OrbConfig {
+export interface OrbConfig {
     size?: number;
 
     posX?: number;
@@ -20,7 +20,7 @@ interface OrbConfig {
     moveY?: number;
 }
 
-interface Container {
+export interface Container {
     top: number,
     right: number,
     bottom: number,
@@ -185,7 +185,9 @@ export class MetaBalls {
     private updateOrbs = () => {
         this.orbArray.forEach(orb => {
             orb.updatePosition();
-            checkCollisionRect(orb, this.containIn.top, this.containIn.right, this.containIn.bottom, this.containIn.left, this.onCollisionX, this.onCollisionY);
+            //checkCollisionRect(orb, this.containIn.top, this.containIn.right, this.containIn.bottom, this.containIn.left, this.onCollisionX, this.onCollisionY);
+            checkAreaRect(orb, this.containIn.top, this.containIn.right, this.containIn.bottom, this.containIn.left);
+
         })
     }
 
