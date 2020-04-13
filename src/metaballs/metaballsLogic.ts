@@ -1,6 +1,6 @@
 import { frag, vert } from './shaders';
 import Orb from './Orb';
-import { checkCollisionRect, createShaderProgram, randomInRange } from './util';
+import { /* checkCollisionRect */calcAttraction , createShaderProgram, randomInRange, randomFloatInRange } from './util';
 
 export interface minMax {
     min: number;
@@ -46,8 +46,13 @@ export class MetaBalls {
 
     containIn: Container = { top: 0, right: 0, bottom: 0, left: 0 };
 
-    minRandomSize: number = 10;
-    maxRandomSize: number = 130;
+    canvasCenterX: number=0;
+    canvasCenterY: number=0;
+
+    attraction: number=40;
+    
+    minRandomSize: number = 16;
+    maxRandomSize: number = 150;
 
     constructor(canvasRef: HTMLCanvasElement, containerRef: HTMLElement, deflectMovement: minMax | undefined, shiftColor: minMax | undefined, orbSettings?: Array<object> | null | undefined, ) {
         this.canvasRef = canvasRef;
@@ -58,7 +63,7 @@ export class MetaBalls {
         this.lastContainerHeight = containerRef.clientHeight;
         this.containerRef = containerRef;
 
-        if (deflectMovement && shiftColor) {
+        /* if (deflectMovement && shiftColor) {
             this.onCollisionX = (orb: Orb) => {
                 orb.reflectX();
                 orb.deflectMovementX(deflectMovement.min, deflectMovement.max);
@@ -88,12 +93,19 @@ export class MetaBalls {
                 orb.reflectY();
                 orb.shiftColor(shiftColor.min, shiftColor.max);
             }
-        }
+        } */
 
     }
     setCanvasDim() {
         this.canvasRef.width = this.canvasRef.clientWidth;
         this.canvasRef.height = this.canvasRef.clientHeight;
+
+        this.canvasCenterX=this.canvasRef.width / 2;
+        this.canvasCenterY=this.canvasRef.height / 2;
+
+        this.attraction=this.canvasCenterX / 32;
+
+        this.resizeOrbs();
 
         /* set the area where orbs spawn and bounce around */
         const { offsetTop, offsetLeft, clientWidth, clientHeight } = this.containerRef;
@@ -103,6 +115,12 @@ export class MetaBalls {
         this.containIn.top = this.canvasRef.clientHeight - offsetTop - clientHeight;
         this.containIn.left = offsetLeft;
 
+    }
+
+    resizeOrbs(){
+        for(let i:number=0; i<this.orbArray.length; i++){
+            this.orbArray[i].size=randomFloatInRange(this.canvasRef.height / 77, this.canvasRef.height / 8);
+        }
     }
 
     create() {
@@ -125,24 +143,24 @@ export class MetaBalls {
         if (this.orbSettings && this.orbSettings.length > 0) {
             return this.orbSettings.forEach((orbConfig, index) => {
                 this.orbArray[index] = new Orb(
-                    orbConfig.size || randomInRange(this.minRandomSize, this.maxRandomSize),
-                    (orbConfig.posX && orbConfig.posX > left && orbConfig.posX < right) ? orbConfig.posX : randomInRange(left, right),
-                    (orbConfig.posY && orbConfig.posY > top && orbConfig.posY < bottom) ? orbConfig.posY : randomInRange(top, bottom),
+                    orbConfig.size || randomFloatInRange(this.minRandomSize, this.maxRandomSize),
+                    (orbConfig.posX && orbConfig.posX > left && orbConfig.posX < right) ? orbConfig.posX : randomFloatInRange(left, right),
+                    (orbConfig.posY && orbConfig.posY > top && orbConfig.posY < bottom) ? orbConfig.posY : randomFloatInRange(top, bottom),
                     orbConfig.colorR || randomInRange(0, 255),
                     orbConfig.colorG || randomInRange(0, 255),
                     orbConfig.colorB || randomInRange(0, 255),
-                    orbConfig.moveX || randomInRange(1, 5),
-                    orbConfig.moveY || randomInRange(1, 5)
+                    orbConfig.moveX || randomFloatInRange(1, 6),
+                    orbConfig.moveY || randomFloatInRange(1, 6)
                 )
             })
         }
         /* else go full random */
         for (let i = 0; i < this.orbCount; i++) {
             this.orbArray[i] = new Orb(
-                randomInRange(4, 60),
-                randomInRange(left, right), randomInRange(top, bottom),
+                randomFloatInRange(4, 60),
+                randomFloatInRange(left, right), randomFloatInRange(top, bottom),
                 randomInRange(0, 255), randomInRange(0, 255), randomInRange(0, 255),
-                randomInRange(1, 5), randomInRange(1, 5)
+                randomFloatInRange(1, 6), randomFloatInRange(1, 6)
             )
         }
     }
@@ -185,8 +203,8 @@ export class MetaBalls {
     private updateOrbs = () => {
         this.orbArray.forEach(orb => {
             orb.updatePosition();
-            checkCollisionRect(orb, this.containIn.top, this.containIn.right, this.containIn.bottom, this.containIn.left, this.onCollisionX, this.onCollisionY);
-
+            //checkCollisionRect(orb, this.containIn.top, this.containIn.right, this.containIn.bottom, this.containIn.left, this.onCollisionX, this.onCollisionY);
+            calcAttraction(orb, {x: this.canvasCenterX, y: this.canvasCenterY}, this.attraction);
         })
     }
 

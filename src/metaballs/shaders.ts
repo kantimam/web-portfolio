@@ -24,8 +24,8 @@ vec3 getColSum(vec2 uv){
 
         sumColor+=vec3(distRadius*vec3(u_orbData[6*i+3], u_orbData[6*i+4], u_orbData[6*i+5]));
     }
-    
     return (sumColor / float(ORBCOUNT));
+    //return smoothstep(0.14,1.4,sumColor / float(ORBCOUNT));
 
 }
 

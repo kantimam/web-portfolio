@@ -11,8 +11,6 @@ const MetaBallsWrapper = () => {
         <div id="metaBallsWrapper">
             <MetaBalls
                 innerContainer={<div style={{ marginTop: "3rem", width: "100%", maxWidth: "100%" }} />}
-                shiftColor={{ min: 8, max: 40 }}
-                deflectMovement={{ min: 0.4, max: 5 }}
                 orbData={metaConfig}
             >
             </MetaBalls>

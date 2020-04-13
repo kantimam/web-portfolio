@@ -20,11 +20,10 @@ export const switchColor = (orb: Orb) => {
     orb.colorB = (orb.colorB + randomInRange(0, 50)) % 255;
 }
 
-function calcAttraction(body: Orb, attractor: vec2):void {
-    const mass: number = 40;
+export function calcAttraction(body: Orb, attractor: vec2, mass: number):void {
     let dir = vectorDirection(body, attractor);
     let dirSquared = magSquared(dir);
-    let dirSquaredLimited = constrain(dirSquared, 5, 60);
+    let dirSquaredLimited = constrain(dirSquared, 1, 520);
     let strength = mass / dirSquaredLimited;
     let force = setMag(dir, strength);
     body.aX=force.x;
@@ -38,7 +37,7 @@ function constrain(num: number, min: number, max: number): number {
 
 function vectorDirection(source: Orb, target: vec2): vec2 {
     const directionX = target.x - source.positionX
-    const directionY = target.x - source.positionY
+    const directionY = target.y - source.positionY
     return { x: directionX, y: directionY };
 }
 
