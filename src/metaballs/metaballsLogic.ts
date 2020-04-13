@@ -1,6 +1,6 @@
 import { frag, vert } from './shaders';
 import Orb from './Orb';
-import { checkAreaRect, checkCollisionRect, createShaderProgram, randomInRange } from './util';
+import { checkCollisionRect, createShaderProgram, randomInRange } from './util';
 
 export interface minMax {
     min: number;
@@ -46,8 +46,8 @@ export class MetaBalls {
 
     containIn: Container = { top: 0, right: 0, bottom: 0, left: 0 };
 
-    minRandomSize: number = 5;
-    maxRandomSize: number = 120;
+    minRandomSize: number = 10;
+    maxRandomSize: number = 130;
 
     constructor(canvasRef: HTMLCanvasElement, containerRef: HTMLElement, deflectMovement: minMax | undefined, shiftColor: minMax | undefined, orbSettings?: Array<object> | null | undefined, ) {
         this.canvasRef = canvasRef;
@@ -185,8 +185,7 @@ export class MetaBalls {
     private updateOrbs = () => {
         this.orbArray.forEach(orb => {
             orb.updatePosition();
-            //checkCollisionRect(orb, this.containIn.top, this.containIn.right, this.containIn.bottom, this.containIn.left, this.onCollisionX, this.onCollisionY);
-            checkAreaRect(orb, this.containIn.top, this.containIn.right, this.containIn.bottom, this.containIn.left);
+            checkCollisionRect(orb, this.containIn.top, this.containIn.right, this.containIn.bottom, this.containIn.left, this.onCollisionX, this.onCollisionY);
 
         })
     }

@@ -1,4 +1,4 @@
-import { randomInRange } from './util'
+import { randomInRange, randomFloatInRange } from './util'
 
 export default class Orb {
     size: number;
@@ -9,7 +9,9 @@ export default class Orb {
     colorB: number;
     moveX: number;
     moveY: number;
-    
+    aX: number;
+    aY: number;
+
     lastCollision: number=0;
 
 
@@ -22,16 +24,21 @@ export default class Orb {
         this.colorR = colorR;
         this.colorG = colorG;
         this.colorB = colorB;
-
+        this.aX=0;
+        this.aY=0;
 
     }
 
     updatePosition(): void {
+        this.updateVelocity();
         this.positionX += this.moveX;
         this.positionY += this.moveY;
     }
 
-    
+    updateVelocity():void {
+        this.moveX+=this.aX;
+        this.moveY+=this.aY;
+    }
 
     reflectX(){
         this.moveX*=-1;
@@ -42,26 +49,21 @@ export default class Orb {
     }
 
 
-    reflectTop(margin:number){
-        /* this.moveY+=(Math.abs(this.moveY) / margin); */
-        this.moveY+=0.1;
-    }
-    reflectRight(margin:number){
-        this.moveX-=0.15;
-    }
-    reflectBottom(margin:number){
-        this.moveY-=0.1;
-    }
-    reflectLeft(margin:number){
-        this.moveX+=0.15;
-    }
 
-    deflectMovementY(min: number, max: number): void {
+    /* deflectMovementY(min: number, max: number): void {
         this.moveY = this.moveY > 0 ? randomInRange(min, max) : -1 * randomInRange(min, max)
     }
 
     deflectMovementX(min: number, max: number): void {
         this.moveX = this.moveX > 0 ? randomInRange(min, max) : -1 * randomInRange(min, max)
+    } */
+
+    deflectMovementY(min: number, max: number): void {
+        this.moveY = this.moveY > 0 ? randomFloatInRange(min, max) : -1 * randomFloatInRange(min, max)
+    }
+
+    deflectMovementX(min: number, max: number): void {
+        this.moveX = this.moveX > 0 ? randomFloatInRange(min, max) : -1 * randomFloatInRange(min, max)
     }
 
     shiftColor(min: number, max: number){
