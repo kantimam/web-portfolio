@@ -91,6 +91,14 @@ nav{
     }
 }
 
+.iconLink{
+  text-decoration: none;
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+
 #welcomeSection{
   *{
     color: $fontLight;
@@ -245,18 +253,23 @@ button{
     display: flex;
     flex-direction: column;
 
-    /* h1{
-      text-transform: uppercase;
-    } */
+
     .projectTitle{
       width: 100%;
       display: flex;
       align-items: center;
-      img{
+      a{
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: rgb(118, 16, 214);
+      }
+      .githubLink{
         margin-left: auto;
         height: 2rem;
         width: 2rem;
       }
+      
     }
     p{
       margin: 1rem 0;
@@ -267,6 +280,11 @@ button{
       flex-wrap: wrap;
       div{
         margin-right: 1.4rem;
+      }
+      .npmIcon{
+        margin-left: auto;
+        height: 1rem;
+        width: auto;
       }
     }
   }

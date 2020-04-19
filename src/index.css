@@ -98,6 +98,15 @@ nav .githubIcon {
           filter: invert(1);
 }
 
+.iconLink {
+  text-decoration: none;
+}
+
+.iconLink img {
+  width: 100%;
+  height: auto;
+}
+
 #welcomeSection * {
   color: #f0f0f0;
 }
@@ -315,9 +324,6 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  /* h1{
-      text-transform: uppercase;
-    } */
 }
 
 .projectItem .projectDescription .projectTitle {
@@ -330,7 +336,14 @@ button {
           align-items: center;
 }
 
-.projectItem .projectDescription .projectTitle img {
+.projectItem .projectDescription .projectTitle a {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #7610d6;
+}
+
+.projectItem .projectDescription .projectTitle .githubLink {
   margin-left: auto;
   height: 2rem;
   width: 2rem;
@@ -353,6 +366,12 @@ button {
 
 .projectItem .projectDescription .techStackList div {
   margin-right: 1.4rem;
+}
+
+.projectItem .projectDescription .techStackList .npmIcon {
+  margin-left: auto;
+  height: 1rem;
+  width: auto;
 }
 
 /* .fancyShadow {
