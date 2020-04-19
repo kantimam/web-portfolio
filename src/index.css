@@ -315,10 +315,9 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.projectItem .projectDescription h1 {
-  text-transform: uppercase;
+  /* h1{
+      text-transform: uppercase;
+    } */
 }
 
 .projectItem .projectDescription .projectTitle {
