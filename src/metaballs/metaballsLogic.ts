@@ -38,6 +38,7 @@ export class MetaBalls {
     onCollisionY: Function = (orb: Orb) => { orb.reflectY() };
 
     gl: WebGLRenderingContext | null;
+    fragmentShader: string=frag;
     shaderProgram: WebGLProgram | null = null;
     renderLoop: any;
 
@@ -54,7 +55,7 @@ export class MetaBalls {
     minRandomSize: number = 16;
     maxRandomSize: number = 150;
 
-    constructor(canvasRef: HTMLCanvasElement, containerRef: HTMLElement, deflectMovement: minMax | undefined, shiftColor: minMax | undefined, orbSettings?: Array<object> | null | undefined, ) {
+    constructor(canvasRef: HTMLCanvasElement, containerRef: HTMLElement, deflectMovement: minMax | undefined, shiftColor: minMax | undefined, orbSettings?: Array<object> | null | undefined) {
         this.canvasRef = canvasRef;
         this.orbSettings = orbSettings;
         this.orbCount = orbSettings ? orbSettings.length : randomInRange(2, 10);
@@ -62,6 +63,7 @@ export class MetaBalls {
         this.lastContainerWidth = containerRef.clientWidth; /* TODO if canvasRef.size!=containerRef.size find out orbs position inside containerRef */
         this.lastContainerHeight = containerRef.clientHeight;
         this.containerRef = containerRef;
+
 
         /* if (deflectMovement && shiftColor) {
             this.onCollisionX = (orb: Orb) => {
@@ -103,7 +105,7 @@ export class MetaBalls {
         this.canvasCenterX=this.canvasRef.width / 2;
         this.canvasCenterY=this.canvasRef.height / 2;
 
-        this.attraction=this.canvasCenterX / 32;
+        this.attraction=this.canvasCenterX / 34 ;
 
         this.resizeOrbs();
 
@@ -130,7 +132,7 @@ export class MetaBalls {
 
             this.createOrbs();
             /* change fragment shaderstring with calculated arraysize */
-            const fragWithDynamicLength = this.setDynamicLength(frag, this.orbCount);
+            const fragWithDynamicLength = this.setDynamicLength(this.fragmentShader, this.orbCount);
             this.shaderProgram = createShaderProgram(this.gl, vert, fragWithDynamicLength);
         } else console.log("no reference to the canvas was found")
     }
@@ -239,7 +241,7 @@ export class MetaBalls {
 
             const uDistModifierLocation = this.gl.getUniformLocation(this.shaderProgram, "u_distanceModifier");
 
-            this.gl.uniform1f(uDistModifierLocation, 5.0);
+            this.gl.uniform1f(uDistModifierLocation, 4.6);
             // set resolution
             this.gl.uniform2fv(uResolutionLocation, [this.canvasRef.clientWidth, this.canvasRef.clientHeight]);
 

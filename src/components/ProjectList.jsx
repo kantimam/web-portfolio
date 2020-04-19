@@ -2,32 +2,36 @@ import React, { useState } from 'react';
 import ProjectsItem from './ProjectsItem';
 import ProjectImage from './ProjectImage'
 
+import monkeyImg from '../images/monkey_main.png';
+import movieImg from '../images/movie_main.png';
+import ytImg from '../images/yt_main.png';
+
 
 const initialProjects = [
     {
         id: 0,
 
-        image: "https://w.wallhaven.cc/full/4d/wallhaven-4dq8gg.jpg",
+        image: ytImg,
         title: "youtube coon",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est inventore excepturi iure assumenda necessitatibus laboriosam dolorum perferendis beatae laborum, omnis, dolore et. Magni itaque quos fuga, eligendi nesciunt harum molestias.",
+        text: "Progressive web app that lets you search and download youtube videos. You can share your video straight from the mobile youtube app and convert it to mp3.",
         github: "github.com",
         website: "github.com",
         stack: ["react", "express", "mongoDB"],
     },
     {
         id: 1,
-        image: "https://w.wallhaven.cc/full/4d/wallhaven-4dq8gg.jpg",
+        image: monkeyImg,
         title: "monkey benchmark",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est inventore excepturi iure assumenda necessitatibus laboriosam dolorum perferendis beatae laborum, omnis, dolore et. Magni itaque quos fuga, eligendi nesciunt harum molestias.",
+        text: "Collection of memory and reaction time games. Play and compare your score to others. Looking to expand it with more complex games.",
         github: "github.com",
         website: "github.com",
         stack: ["react", "express", "mongoDB"],
     },
     {
         id: 2,
-        image: "https://w.wallhaven.cc/full/4d/wallhaven-4dq8gg.jpg",
+        image: movieImg,
         title: "laravel image board",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est inventore excepturi iure assumenda necessitatibus laboriosam dolorum perferendis beatae laborum, omnis, dolore et. Magni itaque quos fuga, eligendi nesciunt harum molestias.",
+        text: "Basic image board using only laravel since writting react all day gets old. Create interesting and funny posts and interact with others. Please dont summon the third reich again or spamm it with dead animals.",
         github: "github.com",
         website: "github.com",
         stack: ["react", "express", "mongoDB"],

@@ -1,65 +1,67 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { Component } from 'react'
 import MetaBallsWrapper from './components/MetaBallsWrapper';
 import PortfolioSection from './components/PortfolioSection';
 import WelcomeSection from './components/WelcomeSection';
 import Nav from './components/Nav';
+import ImageSlider from './components/ImageSlider';
+
+import monkey from './images/monkey_main.png';
+import movie from './images/movie_main.png';
 
 
+export default class App extends Component {
+  portfolioSectionRef=React.createRef(null);
+  state={
+    showBG: true,
+    scrollPercent: 0,
+  }
 
+  componentDidMount(){
+    window.addEventListener('scroll', this.handleScroll);
+  }
 
-function App() {
-  const [showBG, setBG] = useState(true);
-  const [scrollPercent, setScroll] = useState(0);
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.handleScroll)
 
-  const portfolioSectionRef = useRef(null);
+  }
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    };
-  }, [showBG, scrollPercent])
-
-  const handleScroll = () => {
+  handleScroll = () => {
     
     const scrollP = window.scrollY / window.innerHeight;
     
-    setScroll(scrollP);
+    this.setState({scrollPercent: scrollP});
     /* hide the webGL background if the second page is fully visible */
     if (scrollP >= 1) {
-      if(showBG) setBG(false);
+      if(this.state.showBG) this.setState({showBG: false});
     }
     else {
-      if(!showBG) setBG(true);
+      if(!this.state.showBG) this.setState({showBG: true});
     }
   }
-
-  const scrollToPortfolio = () => {
-    portfolioSectionRef.current.scrollIntoView({
+  scrollToPortfolio = () => {
+    this.portfolioSectionRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     })
   }
 
-
-
-  const scrollToOpacity = scrollPercent > 1 ? 1 : scrollPercent * scrollPercent;
-  return (
-    <>
-      {showBG &&
+  render() {
+    const scrollToOpacity = this.state.scrollPercent > 1 ? 1 : this.state.scrollPercent * this.state.scrollPercent;
+    return (
+      <>
+      {this.state.showBG &&
         <MetaBallsWrapper />
       }
       <div className="App">
 
-        <main style={{ backgroundColor: `rgba(240, 240, 240, ${scrollToOpacity})` }}>
-          <Nav />
-          <WelcomeSection scrollToPortfolio={scrollToPortfolio} />
-          <PortfolioSection ref={portfolioSectionRef} />
+        <main style={{ "--bg-opacity": scrollToOpacity }}>
+          <Nav bgOpacity={scrollToOpacity}/>
+          <WelcomeSection scrollToPortfolio={this.scrollToPortfolio} />
+          <PortfolioSection ref={this.portfolioSectionRef} />
+          <ImageSlider images={[monkey, movie]} duration={1400} active={true}/>
         </main>
       </div>
     </>
-
-  );
+    )
+  }
 }
-
-export default App;

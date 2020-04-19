@@ -27,6 +27,7 @@ export type propTypes = {
   childContainerFlex?: "row" | "row-reverse" | "column" | "column-reverse";
   shiftColor?: minMax | undefined;
   deflectMovement?: minMax | undefined;
+  fragmentShader?: string | undefined;
 }
 
 
@@ -34,7 +35,7 @@ export const defaultInnerContainer=<div className="metaBalls-innerContainer" sty
 
 
 
-const MetaBalls: React.FC<propTypes> = ({ orbData, innerContainer=defaultInnerContainer, children, childContainerFlex, shiftColor, deflectMovement }) => {
+const MetaBalls: React.FC<propTypes> = ({ orbData, innerContainer=defaultInnerContainer, children, childContainerFlex, shiftColor, deflectMovement, fragmentShader }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   let innerRef = useRef<HTMLElement>(null);
 
@@ -43,6 +44,7 @@ const MetaBalls: React.FC<propTypes> = ({ orbData, innerContainer=defaultInnerCo
     let metaball: MetaBallsRenderer;
     if(canvasRef.current && innerRef.current){
       metaball = new MetaBallsRenderer(canvasRef.current, innerRef.current, deflectMovement, shiftColor, orbData)
+      if(fragmentShader) metaball.fragmentShader=fragmentShader;
       metaball.create();
       metaball.render();
     }

@@ -1,4 +1,4 @@
-export const frag: string= `
+const fancyFrag: string= `
 
 precision mediump float;
 const int <ORBCOUNT=0>;
@@ -24,8 +24,7 @@ vec3 getColSum(vec2 uv){
 
         sumColor+=vec3(distRadius*vec3(u_orbData[6*i+3], u_orbData[6*i+4], u_orbData[6*i+5]));
     }
-    //return (sumColor / float(ORBCOUNT));
-    return smoothstep(0.02,1.2,sumColor / float(ORBCOUNT));
+    return fract(smoothstep(0.02,0.38, sumColor / float(ORBCOUNT)));
 
 }
 
@@ -35,15 +34,4 @@ void main() {
 
 `
 
-export const vert: string= `
-precision mediump float;
-attribute vec4 a_position;
-
-void main() {
-    gl_Position = a_position;
-}
-
-`
-
-
-/* TODO make shader with return fract(smoothstep(0.02,0.4,sumColor / float(ORBCOUNT))); */
+export default fancyFrag;
