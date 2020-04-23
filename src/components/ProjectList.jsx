@@ -130,7 +130,7 @@ const initialProjects = [
 
 export default () => {
     const [projects, setProjects] = useState([...initialProjects].slice(0,3));
-    const [allLoaded, setLoaded]=useState(false);
+    const [allLoaded, setLoaded]=useState(true);
     return (
         <div className="projectList">
             {projects.map(p =>
