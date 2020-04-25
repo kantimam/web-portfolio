@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -287,7 +288,7 @@ button {
           align-items: center;
 }
 
-.projectItem .imgContainer {
+.projectItem .imgContainer, .projectItem .imageSlider {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1/3;
@@ -368,8 +369,11 @@ button {
   margin-right: 1.4rem;
 }
 
-.projectItem .projectDescription .techStackList .npmIcon {
+.projectItem .projectDescription .techStackList .npmIconLink {
   margin-left: auto;
+}
+
+.projectItem .projectDescription .techStackList .npmIconLink .npmIcon {
   height: 1rem;
   width: auto;
 }
@@ -424,10 +428,23 @@ button {
           justify-content: center;
 }
 
-.gitHubCard h3 {
-  font-size: 2.8rem;
+.gitHubCard .allLoadedGraphic.animationActive h1 {
+  -webkit-animation: slideIn 0.8s ease-in-out 1.4s forwards;
+          animation: slideIn 0.8s ease-in-out 1.4s forwards;
+}
+
+.gitHubCard .allLoadedGraphic.animationActive h3 {
   -webkit-animation: slideIn 1s ease-in-out 1s forwards;
           animation: slideIn 1s ease-in-out 1s forwards;
+}
+
+.gitHubCard .allLoadedGraphic.animationActive img {
+  -webkit-animation: flyUp 2s ease-in-out forwards, wobble 4s ease-in-out 2s infinite;
+          animation: flyUp 2s ease-in-out forwards, wobble 4s ease-in-out 2s infinite;
+}
+
+.gitHubCard h3 {
+  font-size: 2.8rem;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
   opacity: 0;
@@ -436,8 +453,6 @@ button {
 .gitHubCard h1 {
   margin-top: 1rem;
   font-size: 3.6rem;
-  -webkit-animation: slideIn 0.8s ease-in-out 1.4s forwards;
-          animation: slideIn 0.8s ease-in-out 1.4s forwards;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
   opacity: 0;
@@ -472,8 +487,8 @@ button {
 .gitHubCard img {
   max-width: 50%;
   width: 32rem;
-  -webkit-animation: flyUp 2s ease-in-out, wobble 4s ease-in-out 2s infinite;
-          animation: flyUp 2s ease-in-out, wobble 4s ease-in-out 2s infinite;
+  -webkit-transform: translateY(150%);
+          transform: translateY(150%);
 }
 
 .gitHubCard article {
@@ -483,8 +498,8 @@ button {
 
 @-webkit-keyframes flyUp {
   from {
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    -webkit-transform: translateY(150%);
+            transform: translateY(150%);
   }
   to {
     -webkit-transform: translateY(0);
@@ -494,8 +509,8 @@ button {
 
 @keyframes flyUp {
   from {
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    -webkit-transform: translateY(150%);
+            transform: translateY(150%);
   }
   to {
     -webkit-transform: translateY(0);
@@ -509,8 +524,8 @@ button {
             transform: translateY(0);
   }
   70% {
-    -webkit-transform: translateY(4%);
-            transform: translateY(4%);
+    -webkit-transform: translateY(8%);
+            transform: translateY(8%);
   }
   100% {
     -webkit-transform: translateY(0);
@@ -524,8 +539,8 @@ button {
             transform: translateY(0);
   }
   70% {
-    -webkit-transform: translateY(4%);
-            transform: translateY(4%);
+    -webkit-transform: translateY(8%);
+            transform: translateY(8%);
   }
   100% {
     -webkit-transform: translateY(0);
@@ -535,15 +550,15 @@ button {
 
 .imageSlider {
   position: relative;
-  width: 40rem;
-  margin: 4rem;
+  /* width: 40rem; */
+  width: 100%;
 }
 
 .imageSlider .imageSliderContainer {
   width: 100%;
   height: 0;
   padding-bottom: 56.5%;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .imageSlider .imageSliderContainer img {

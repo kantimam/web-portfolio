@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react'
+import React, {forwardRef, memo} from 'react'
 import ProjectList from './ProjectList'
 
 const PortfolioSection = forwardRef((props, ref) => {
@@ -13,4 +13,4 @@ const PortfolioSection = forwardRef((props, ref) => {
     )
 })
 
-export default PortfolioSection
+export default memo(PortfolioSection)

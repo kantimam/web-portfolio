@@ -1,9 +1,10 @@
 import React from 'react'
 
 const ProjectImage = ({image}) => {
+    const imagePath=process.env.REACT_APP_API_STATIC+"/"+image;
     return (
         <div className="imgContainer fancyShadow">
-            <img src={image} alt="my project"/>
+            <img src={imagePath} alt="my project"/>
         </div>
     )
 }

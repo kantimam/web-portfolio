@@ -4,9 +4,8 @@ import PortfolioSection from './components/PortfolioSection';
 import WelcomeSection from './components/WelcomeSection';
 import Nav from './components/Nav';
 import ImageSlider from './components/ImageSlider';
+import ContactSection from './components/ContactSection';
 
-import monkey from './images/monkey_main.png';
-import movie from './images/movie_main.png';
 
 
 export default class App extends Component {
@@ -58,7 +57,8 @@ export default class App extends Component {
           <Nav bgOpacity={scrollToOpacity}/>
           <WelcomeSection scrollToPortfolio={this.scrollToPortfolio} />
           <PortfolioSection ref={this.portfolioSectionRef} />
-          <ImageSlider images={[monkey, movie]} duration={1400} active={true}/>
+          <ContactSection/>
+          {/* <ImageSlider images={[monkey, movie]} duration={1400} active={true}/> */}
         </main>
       </div>
     </>

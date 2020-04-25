@@ -1,15 +1,15 @@
 import React from 'react'
-import ProjectImage from './ProjectImage'
-import GithubIcon from './GithubIcon'
 import GithubCard from './GithubCard'
-
+import space from '../images/space.jpg';
 
 const MoreProjects = ({allLoaded, onClick}) => {
     
     if(allLoaded) return <GithubCard/>
     return (
         <div onClick={onClick} className="projectItem moreProjects">
-            <ProjectImage image="https://w.wallhaven.cc/full/4d/wallhaven-4dq8gg.jpg" />
+            <div className="imgContainer fancyShadow">
+                <img src={space} alt="my project"/>
+            </div>
             <div className="projectDescription">
                 <h1>LOAD MORE!</h1>
                 <p>

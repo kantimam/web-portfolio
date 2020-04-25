@@ -4,13 +4,14 @@ $mainColor: rgba(79, 5, 92, 1);
 $mainColorTrans: rgba(79, 5, 92, 0.322);
 $fontLight: rgba(240, 240, 240, 1);
 
-html,body{
+html,
+body {
   overflow-x: hidden;
 }
 
-*{
-    margin: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
 
@@ -18,19 +19,19 @@ html,body{
 .App {
   position: relative;
   --bgColor: rgb(240, 240, 240);
-  
+
 }
 
 
-.flexCenterAll{
+.flexCenterAll {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 
-.centerText{
-    text-align: center;
+.centerText {
+  text-align: center;
 }
 
 .contentDiv {
@@ -44,7 +45,7 @@ html,body{
   color: white;
 }
 
-#metaBallsWrapper{
+#metaBallsWrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -53,57 +54,62 @@ html,body{
   transition: opacity 2s;
 }
 
-.fadeOutMetaBalls{
+.fadeOutMetaBalls {
   opacity: 0;
 }
 
 main {
   width: 100%;
   background-color: rgba(240, 240, 240, var(--bg-opacity));
-  &>section{
+
+  &>section {
     height: 100vh;
   }
 }
 
-.inner{
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: $contentWidth;
+  max-width: 94%;
+}
+
+nav {
+  background-color: rgba(38, 38, 38, calc(var(--bg-opacity) - 0.4));
+  width: 100%;
+  display: block;
+  height: $navHeight;
+  position: fixed;
+  z-index: 2;
+
+  .inner {
+    height: 100%;
+    /* background-color: red; */
+  }
+
+  .githubIcon {
     margin-left: auto;
-    margin-right: auto;
-    width: $contentWidth;
-    max-width: 94%;
+    height: calc(100% - 0.6rem);
+    opacity: var(--bg-opacity);
+    filter: invert(1);
+  }
 }
 
-nav{
-    background-color: rgba(38,38,38, calc(var(--bg-opacity) - 0.4));
-    width: 100%;
-    display: block;
-    height: $navHeight;
-    position: fixed;
-    z-index: 2;
-    .inner{
-        height: 100%;
-        /* background-color: red; */
-    }
-    .githubIcon{
-      margin-left: auto;
-      height: calc(100% - 0.6rem);
-      opacity: var(--bg-opacity);
-      filter: invert(1);
-    }
-}
-
-.iconLink{
+.iconLink {
   text-decoration: none;
-  img{
+
+  img {
     width: 100%;
     height: auto;
   }
 }
 
-#welcomeSection{
-  *{
+#welcomeSection {
+  * {
     color: $fontLight;
   }
-  .welcomeWrapper{
+
+  .welcomeWrapper {
     border-radius: 30rem;
     height: 40rem;
     width: 40rem;
@@ -115,7 +121,7 @@ nav{
     position: relative;
     transform-style: preserve-3d;
 
-    &:after{
+    &:after {
       z-index: -1;
       content: "";
       position: absolute;
@@ -131,102 +137,113 @@ nav{
       animation: expandBubble 8s infinite ease-in-out;
       transition: 3s;
     }
-    &:hover{
-      &:after{
+
+    &:hover {
+      &:after {
         background-color: rgba(118, 16, 214, 0.24);
         filter: blur(22px);
       }
     }
   }
-  @keyframes expandBubble{
-    0%{
+
+  @keyframes expandBubble {
+    0% {
       opacity: 0.8;
       transform: scale(0.4)
     }
-    66%{
+
+    66% {
       opacity: 0.6;
       transform: scale(1.2);
     }
-    100%{
+
+    100% {
       opacity: 0.8;
       transform: scale(0.4);
     }
   }
 
-  h1{
-      font-size: 4rem;
-      margin: 0.2rem;
+  h1 {
+    font-size: 4rem;
+    margin: 0.2rem;
   }
-  h3{
-      font-size: 1.8rem;
+
+  h3 {
+    font-size: 1.8rem;
   }
-  button{
-      border: 0.1rem solid transparent;
-      padding: 0.6rem 1rem;
-      display: block;
-      margin: 2rem auto 0 auto;
-      background-color: $fontLight;
-      color: $mainColor;
-      font-weight: bold;
-      cursor: pointer;
+
+  button {
+    border: 0.1rem solid transparent;
+    padding: 0.6rem 1rem;
+    display: block;
+    margin: 2rem auto 0 auto;
+    background-color: $fontLight;
+    color: $mainColor;
+    font-weight: bold;
+    cursor: pointer;
   }
-  .hoverScale:hover{
+
+  .hoverScale:hover {
     border: 0.1rem solid $fontLight !important;
     background-color: $mainColor !important;
     color: $fontLight !important;
   }
 }
 
-button{
-    border: none;
-    /* border-radius: 0.2rem; */
-    font-size: 1.4rem;
+button {
+  border: none;
+  /* border-radius: 0.2rem; */
+  font-size: 1.4rem;
 }
 
-.callToAction{
-    transition: transform 0.4s;
+.callToAction {
+  transition: transform 0.4s;
 }
 
-.hoverScale:hover{
-    transform: scale(1.05);
+.hoverScale:hover {
+  transform: scale(1.05);
 }
 
 
-.fadeInColor{
+.fadeInColor {
   animation: colorAnimation 3s forwards;
 
 }
-@keyframes colorAnimation{
+
+@keyframes colorAnimation {
   from {
     background-color: transparent;
   }
-  to{
+
+  to {
     background-color: rgb(139, 64, 224);
   }
 }
 
-#portfolioSection{
+#portfolioSection {
   height: unset !important;
   min-height: 100vh;
-  .inner{
-      padding: 4.2rem 0 3rem 0;
+
+  .inner {
+    padding: 4.2rem 0 3rem 0;
   }
 
 }
 
-.projectList{
+.projectList {
   padding: 0.4rem 0 2.2rem 0;
 
 }
 
-.projectItem{
+.projectItem {
   width: 100%;
   max-width: 100%;
   margin-top: 2.4rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
-  .imgContainer{
+
+  .imgContainer, .imageSlider {
     grid-column: 1/3;
     overflow: hidden;
     border-radius: 0.4rem;
@@ -235,12 +252,14 @@ button{
     margin: 0 auto;
     border: 0.06rem solid #474747a4;
   }
-  img{
+
+  img {
     display: block;
     width: 100%;
     object-fit: cover;
   }
-  .projectDescription{
+
+  .projectDescription {
     grid-column: 3/-1;
     width: 100%;
     min-height: calc(100% - 1.4rem);
@@ -254,51 +273,63 @@ button{
     flex-direction: column;
 
 
-    .projectTitle{
+    .projectTitle {
       width: 100%;
       display: flex;
       align-items: center;
-      a{
+
+      a {
         font-size: 2rem;
         font-weight: bold;
         text-decoration: none;
         color: rgb(118, 16, 214);
       }
-      .githubLink{
+
+      .githubLink {
         margin-left: auto;
         height: 2rem;
         width: 2rem;
       }
-      
+
     }
-    p{
+
+    p {
       margin: 1rem 0;
       flex: 1;
     }
-    .techStackList{
+
+    .techStackList {
       display: flex;
       flex-wrap: wrap;
-      div{
+
+      div {
         margin-right: 1.4rem;
       }
-      .npmIcon{
+
+      .npmIconLink {
         margin-left: auto;
-        height: 1rem;
-        width: auto;
+
+        .npmIcon {
+          height: 1rem;
+          width: auto;
+        }
       }
+
     }
   }
 }
+
 /* .fancyShadow {
   box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem #fff, inset 1rem 1rem 1rem hsla(0,0%,100%,.25);
 } */
 
-.moreProjects{
+.moreProjects {
   cursor: pointer;
   height: 10rem;
   overflow: hidden;
   position: relative;
-  &:after{
+
+  &:after {
     content: "";
     position: absolute;
     top: 0;
@@ -307,88 +338,113 @@ button{
     height: 100%;
     background-image: linear-gradient(transparent 20%, var(--bgColor) 70%);
   }
-  .imgContainer{
+
+  .imgContainer {
     height: 100%;
   }
 }
 
-.gitHubCard{
+.gitHubCard {
   margin: 6rem auto 0.4rem auto;
   flex-direction: column;
   display: flex;
   flex-direction: column;
   min-height: 44rem;
-  
-  .allLoadedGraphic{
+
+  .allLoadedGraphic {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &.animationActive {
+      h1 {
+        animation: slideIn 0.8s ease-in-out 1.4s forwards;
+      }
+
+      h3 {
+        animation: slideIn 1s ease-in-out 1s forwards;
+      }
+
+      img {
+        animation: flyUp 2s ease-in-out forwards, wobble 4s ease-in-out 2s infinite;
+      }
+    }
   }
-  h3{
+
+  h3 {
     font-size: 2.8rem;
-    animation: slideIn 1s ease-in-out 1s forwards;
     transform: translateX(100%);
     opacity: 0;
   }
-  h1{
+
+  h1 {
     margin-top: 1rem;
     font-size: 3.6rem;
-    animation: slideIn 0.8s ease-in-out 1.4s forwards;
     transform: translateX(100%);
     opacity: 0;
   }
-  @keyframes slideIn{
-    from{
+
+  @keyframes slideIn {
+    from {
       opacity: 0;
       transform: translateX(100%)
     }
-    to{
+
+    to {
       opacity: 1;
       transform: translateX(0)
     }
   }
-  img{
+
+  img {
     max-width: 50%;
     width: 32rem;
-    animation: flyUp 2s ease-in-out, wobble 4s ease-in-out 2s infinite;
+    transform: translateY(150%)
   }
 
 
-  article{
+  article {
     min-height: 12rem;
     margin: auto;
   }
-  @keyframes flyUp{
-    from{
-      transform: translateY(100%)
+
+  @keyframes flyUp {
+    from {
+      transform: translateY(150%)
     }
-    to{
+
+    to {
       transform: translateY(0)
     }
   }
-  @keyframes wobble{
-    0%{
+
+  @keyframes wobble {
+    0% {
       transform: translateY(0)
     }
-    70%{
-      transform: translateY(4%)
+
+    70% {
+      transform: translateY(8%)
     }
-    100%{
+
+    100% {
       transform: translateY(0)
     }
   }
 }
 
-.imageSlider{
+.imageSlider {
   position: relative;
-  width: 40rem;
-  margin: 4rem;
-  .imageSliderContainer{
+  /* width: 40rem; */
+  width: 100%;
+
+  .imageSliderContainer {
     width: 100%;
     height: 0;
     padding-bottom: 56.5%;
-    background-color: red;
-    img{
+    /* background-color: red; */
+
+    img {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -397,30 +453,31 @@ button{
   }
 }
 
-@media (max-width: 1020px){
-  .projectItem{
-    .projectDescription{
+@media (max-width: 1020px) {
+  .projectItem {
+    .projectDescription {
       height: 100%;
       font-size: 1rem;
     }
   }
 }
 
-@media (max-width: 840px){
-  .projectItem{
+@media (max-width: 840px) {
+  .projectItem {
     display: block;
-    box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem rgb(255, 255, 255), inset 1rem 1rem 1rem hsla(0,0%,100%,.25);
+    box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem rgb(255, 255, 255), inset 1rem 1rem 1rem hsla(0, 0%, 100%, .25);
     border-radius: 0.4rem;
     overflow: hidden;
-    .projectDescription{
+
+    .projectDescription {
       min-height: 12rem;
       box-shadow: unset;
       padding: 0.6rem 0.4rem 0.2rem 0.4rem;
     }
   }
 
-  .moreProjects{
-    &:after{
+  .moreProjects {
+    &:after {
       font-size: 2.2rem;
       font-weight: bold;
       content: "LOAD MORE";
@@ -429,22 +486,22 @@ button{
 
     }
   }
-  .welcomeWrapper{
+
+  .welcomeWrapper {
     width: 20rem !important;
     height: 20rem !important;
-    h1{
+
+    h1 {
       font-size: 2.4rem !important;
     }
-    h3{
+
+    h3 {
       font-size: 1.4rem !important;
     }
-    button{
+
+    button {
       font-size: 1.4rem !important;
     }
-    
+
   }
 }
-
-
-
-

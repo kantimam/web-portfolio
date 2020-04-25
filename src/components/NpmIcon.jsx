@@ -1,9 +1,13 @@
 import React from 'react'
 import npm from '../images/npm-logo-red.svg'
 
-const NpmIcon = () => {
+const NpmIcon = ({ packageLink }) => {
+    
+    if (!packageLink) return null;
     return (
-        <img className="npmIcon" src={npm} alt="npm"/>            
+        <a className="npmIconLink" href={packageLink}>
+            <img className="npmIcon" src={npm} alt="npm" />
+        </a>
     )
 }
 
