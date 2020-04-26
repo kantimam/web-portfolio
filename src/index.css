@@ -393,10 +393,21 @@ button {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* img{
+        height: 2rem;
+        width: auto;
+        margin: 0 0.4rem;
+        
+      } */
 }
 
 .projectItem .projectDescription .techStackList div {
-  margin-right: 1.4rem;
+  margin-right: 0.2rem;
+  font-size: calc(var(--mainFontSize) * 0.9);
+  font-weight: bold;
 }
 
 .projectItem .projectDescription .techStackList .npmIconLink {

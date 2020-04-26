@@ -3,6 +3,9 @@ import ProjectDescription from './ProjectDescription'
 import ProjectImage from './ProjectImage'
 import ImageSlider from './ImageSlider';
 
+
+
+
 const ProjectsItem = ({ project }) => {
     const [active, setActive]=useState(false);
 

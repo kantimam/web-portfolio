@@ -1,8 +1,17 @@
 import React from 'react'
 import GithubIcon from './GithubIcon'
 import NpmIcon from './NpmIcon'
+/* import reactIcon from '../images/react.svg'
+import nodeIcon from '../images/nodejs.svg'
+import jsIcon from '../images/js.svg'
 
-const ProjectDescription = ({ name="", description="", stack=[], id, homepage="", repository="", packageLink="" }) => {
+const icons={
+    react: reactIcon,
+    node: nodeIcon,
+    js: jsIcon
+} */
+
+const ProjectDescription = ({ name="", description="", stack=["react", "node"], id, homepage="", repository="", packageLink="" }) => {
     return (
         <div className="projectDescription">
             <div className="projectTitle">
@@ -13,7 +22,7 @@ const ProjectDescription = ({ name="", description="", stack=[], id, homepage=""
             </div>
             <p>{description}</p>
             <div className="techStackList">
-                {stack.map(i => <div key={`item_${id}_${i}`}>{i}</div>)}
+                {stack.map(i =><IconOrText name={i} key={`item_${id}_${i}`}/>)}
                 <NpmIcon packageLink={packageLink}/> 
             </div>
         </div>
@@ -21,3 +30,13 @@ const ProjectDescription = ({ name="", description="", stack=[], id, homepage=""
 }
 
 export default ProjectDescription
+
+
+const IconOrText=({name})=>{
+    return <div>{`<${name}/>`}</div>
+    /* const icon=icons[name.toLowerCase()];
+    if(icon) return (
+        <img className={`tech_icon_${name}`} src={icon} alt={name}/>
+    )
+    return <div>{name}</div> */
+}

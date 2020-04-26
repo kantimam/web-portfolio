@@ -15,7 +15,7 @@ const initialProjects = [
         description: "Progressive web app that lets you search and download youtube videos. You can share your video straight from the mobile youtube app and convert it to mp3.",
         repository: "github.com",
         homepage: "https://baizuo.online/",
-        stack: ["JS", "Node", "web scraping", "react", "express"],
+        stack: ["JS", "Node", "Web Scraping", "React", "Express"],
     },
     {
         id: 1,
@@ -51,7 +51,7 @@ export default memo(() => {
         fetch(process.env.REACT_APP_API_PROJECTS+"?limit=3", {signal})
             .then(data => data.json()
                 .then(json => setProjects(json))
-            ).catch(e => alert("looks like the projects server is down :("));
+            ).catch(e => /* alert("looks like the projects server is down :(") */console.log(e));
         return () => {
             controller.abort();
         }

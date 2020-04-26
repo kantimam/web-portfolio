@@ -332,10 +332,20 @@ button {
     .techStackList {
       display: flex;
       flex-wrap: wrap;
-
+      align-items: center;
       div {
-        margin-right: 1.4rem;
+        margin-right: 0.2rem;
+        font-size: calc(var(--mainFontSize) * 0.9);
+        font-weight: bold;
       }
+
+      /* img{
+        height: 2rem;
+        width: auto;
+        margin: 0 0.4rem;
+        
+      } */
+      
 
       .npmIconLink {
         margin-left: auto;
