@@ -19,6 +19,9 @@ body {
 .App {
   position: relative;
   --bgColor: rgb(240, 240, 240);
+  --mainFontSize: 1.2rem;
+  --h1FontSize: 2.8rem;
+  --h3FontSize: 2rem;
 
 }
 
@@ -61,6 +64,7 @@ body {
 main {
   width: 100%;
   background-color: rgba(240, 240, 240, var(--bg-opacity));
+  overflow: hidden;
 
   &>section {
     height: 100vh;
@@ -87,11 +91,35 @@ nav {
     /* background-color: red; */
   }
 
-  .githubIcon {
+  .githubLink {
     margin-left: auto;
     height: calc(100% - 0.6rem);
+  }
+
+  .githubIcon {
+    height: 100%;
     opacity: var(--bg-opacity);
     filter: invert(1);
+  }
+
+  ul {
+    padding: 0;
+    display: flex;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  .mainIcon,
+  li {
+    font-weight: bold;
+    cursor: pointer;
+    opacity: var(--bg-opacity);
+
+    font-size: 1.4rem;
+    color: $fontLight;
+    margin-right: 4rem;
   }
 }
 
@@ -169,7 +197,7 @@ nav {
   }
 
   h3 {
-    font-size: 1.8rem;
+    font-size: var(--h3FontSize);
   }
 
   button {
@@ -188,12 +216,14 @@ nav {
     background-color: $mainColor !important;
     color: $fontLight !important;
   }
+
 }
+
 
 button {
   border: none;
   /* border-radius: 0.2rem; */
-  font-size: 1.4rem;
+  font-size: var(--mainFontSize)
 }
 
 .callToAction {
@@ -225,7 +255,7 @@ button {
   min-height: 100vh;
 
   .inner {
-    padding: 4.2rem 0 3rem 0;
+    padding: 4.2rem 0 10rem 0;
   }
 
 }
@@ -243,7 +273,8 @@ button {
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
 
-  .imgContainer, .imageSlider {
+  .imgContainer,
+  .imageSlider {
     grid-column: 1/3;
     overflow: hidden;
     border-radius: 0.4rem;
@@ -268,7 +299,7 @@ button {
     padding: 0.8rem 1rem;
     box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85;
     background-color: rgba(240, 240, 240, 0.2);
-    font-size: 1.2rem;
+    font-size: var(--mainFontSize);
     display: flex;
     flex-direction: column;
 
@@ -279,7 +310,7 @@ button {
       align-items: center;
 
       a {
-        font-size: 2rem;
+        font-size: var(--h3FontSize);
         font-weight: bold;
         text-decoration: none;
         color: rgb(118, 16, 214);
@@ -372,14 +403,14 @@ button {
   }
 
   h3 {
-    font-size: 2.8rem;
+    font-size: var(--h3FontSize);
     transform: translateX(100%);
     opacity: 0;
   }
 
   h1 {
     margin-top: 1rem;
-    font-size: 3.6rem;
+    font-size: var(--h1FontSize);
     transform: translateX(100%);
     opacity: 0;
   }
@@ -433,6 +464,123 @@ button {
   }
 }
 
+
+.contactSection {
+  padding-top: 4rem;
+  height: unset;
+  min-height: 100vh;
+
+  .inner {
+    text-align: center;
+  }
+
+  form {
+    display: inline-block;
+    /* padding: 1rem 0.2rem; */
+    max-width: 100%;
+    text-align: left;
+    position: relative;
+    .succesMessage{
+      position: absolute;
+      width: 100%;
+      height: 6rem;
+      /* background-image: linear-gradient(transparent, purple ,transparent); */
+      h3{
+        cursor: pointer;
+        color: white;
+        border-radius: 0.6rem;
+        padding: 0.4rem 2rem;
+        font-size: var(--h3FontSize);
+        font-weight: bold;
+        animation: fadeIn 0.4s ease-in-out;
+        max-width: 100%;
+        &.messageSucces{
+          background-color: $mainColor;
+        }
+        &.messageFail{
+          background-color: red;
+
+        }
+      }
+      @keyframes fadeIn{
+        0%{
+          transform: scale(0);
+          opacity: 0;
+        }
+        80%{
+          transform: scale(1.2);
+          opacity: 1;
+        }
+        100%{
+          transform: scale(1);
+        }
+      }
+    }
+    textarea {
+      width: 40rem;
+      display: block;
+      max-width: 100%;
+      border: 1px solid grey;
+      border-radius: 0.4rem;
+      padding: 0.2rem 0.4rem;
+      margin: 0.4rem 0 1rem 0;
+    }
+
+    label {
+      font-size: var(--mainFontSize);
+      font-weight: bold;
+
+      &.required::after {
+        content: "*";
+        color: red;
+      }
+    }
+
+    .contactRow {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      grid-gap: 0 2rem;
+      width: 100%;
+
+      input {
+        margin-top: 0.4rem;
+        display: block;
+        width: 100%;
+        border-radius: 0.4rem;
+        border: 1px solid grey;
+        padding: 0.2rem 0.4rem;
+      }
+    }
+
+    #submitInput {
+      margin: 4rem auto 2rem auto;
+      /* display: block; */
+      background-color: $mainColor;
+      border: 0.1rem transparent;
+      color: $fontLight;
+      padding: 0.6rem 1.2rem;
+      font-size: var(--mainFontSize);
+      /* width: 100%; */
+      width: 100%;
+      border-radius: 0.4rem;
+    }
+  }
+
+  h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: var(--h1FontSize);
+  }
+
+  img {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+    width: 40rem;
+  }
+}
+
 .imageSlider {
   position: relative;
   /* width: 40rem; */
@@ -454,15 +602,19 @@ button {
 }
 
 @media (max-width: 1020px) {
-  .projectItem {
+  .App{
+    --mainFontSize: 1rem;
+  }
+  /* .projectItem {
     .projectDescription {
       height: 100%;
       font-size: 1rem;
     }
-  }
+  } */
 }
 
 @media (max-width: 840px) {
+  
   .projectItem {
     display: block;
     box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem rgb(255, 255, 255), inset 1rem 1rem 1rem hsla(0, 0%, 100%, .25);
@@ -499,9 +651,41 @@ button {
       font-size: 1.4rem !important;
     }
 
-    button {
+   /*  button {
       font-size: 1.4rem !important;
-    }
+    } */
 
+  }
+}
+
+
+@media (max-width: 450px) {
+  .App{
+    --h1FontSize: 1.8rem;
+  }
+  nav{
+    .mainIcon{
+      margin-right: 0;
+    }
+    ul{
+      margin: 0 1rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      li{
+        margin-right: 0;
+      }
+    }
+  }
+  #portfolioSection{
+    .inner{
+      padding-bottom: 0rem !important;
+    };
+    .gitHubCard{
+      min-height: 20rem !important;
+    }
+  }
+  .contactSection{
+    padding-top: 0;
   }
 }
