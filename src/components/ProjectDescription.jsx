@@ -11,7 +11,7 @@ const icons={
     js: jsIcon
 } */
 
-const ProjectDescription = ({ name="", description="", stack=["react", "node"], id, homepage="", repository="", packageLink="" }) => {
+const ProjectDescription = ({ name="", description="", technologies=["react", "node"], id, homepage="", repository="", packageLink="" }) => {
     return (
         <div className="projectDescription">
             <div className="projectTitle">
@@ -22,7 +22,7 @@ const ProjectDescription = ({ name="", description="", stack=["react", "node"], 
             </div>
             <p>{description}</p>
             <div className="techStackList">
-                {stack.map(i =><IconOrText name={i} key={`item_${id}_${i}`}/>)}
+                {technologies.map(i =><IconOrText name={i} key={`item_${id}_${i}`}/>)}
                 <NpmIcon packageLink={packageLink}/> 
             </div>
         </div>

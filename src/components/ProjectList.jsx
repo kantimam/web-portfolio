@@ -15,7 +15,7 @@ const initialProjects = [
         description: "Progressive web app that lets you search and download youtube videos. You can share your video straight from the mobile youtube app and convert it to mp3.",
         repository: "github.com",
         homepage: "https://baizuo.online/",
-        stack: ["JS", "Node", "Web Scraping", "React", "Express"],
+        technologies: ["JS", "Node", "Web Scraping", "React", "Express"],
     },
     {
         id: 1,
@@ -24,7 +24,7 @@ const initialProjects = [
         description: "Collection of memory and reaction time games. Play and compare your score to others. Looking to expand it with more complex games.",
         repository: "github.com",
         homepage: "github.com",
-        stack: ["JS", "Node", "react", "express", "mongoDB"],
+        technologies: ["JS", "Node", "react", "express", "mongoDB"],
     },
     {
         id: 2,
@@ -33,7 +33,7 @@ const initialProjects = [
         description: "Basic image board using only laravel since writting react all day gets old. Create interesting and funny posts and interact with others. Please dont summon the third reich again or spamm it with dead animals.",
         repository: "github.com",
         homepage: "github.com",
-        stack: ["Laravel", "PHP"],
+        technologies: ["Laravel", "PHP"],
 
     },
     

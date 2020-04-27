@@ -440,6 +440,11 @@ button {
   background-image: linear-gradient(transparent 20%, var(--bgColor) 70%);
 }
 
+.moreProjects .projectDescription h1 {
+  font-size: var(--h3FontSize);
+  color: #7610d6;
+}
+
 .moreProjects .imgContainer {
   height: 100%;
 }
@@ -780,9 +785,14 @@ button {
             box-shadow: unset;
     padding: 0.6rem 0.4rem 0.2rem 0.4rem;
   }
+  .moreProjects.projectItem {
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+  }
   .moreProjects:after {
-    font-size: 2.2rem;
+    font-size: var(--h3FontSize);
     font-weight: bold;
+    color: #7610d6;
     content: "LOAD MORE";
     text-align: center;
     line-height: 10rem;
