@@ -15,6 +15,7 @@ body {
   --mainFontSize: 1.2rem;
   --h1FontSize: 2.8rem;
   --h3FontSize: 2rem;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
 
 .flexCenterAll {
@@ -47,7 +48,7 @@ body {
           align-items: center;
   font-weight: bold;
   font-size: 4rem;
-  color: white;
+  color: #f0f0f0;
 }
 
 #metaBallsWrapper {
@@ -137,11 +138,11 @@ nav li {
   height: auto;
 }
 
-#welcomeSection * {
+#welcomeSection h1, #welcomeSection h3 {
   color: #f0f0f0;
 }
 
-#welcomeSection .welcomeWrapper {
+.welcomeWrapper {
   border-radius: 30rem;
   height: 40rem;
   width: 40rem;
@@ -162,7 +163,7 @@ nav li {
           transform-style: preserve-3d;
 }
 
-#welcomeSection .welcomeWrapper:after {
+.welcomeWrapper:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -182,7 +183,7 @@ nav li {
   transition: 3s;
 }
 
-#welcomeSection .welcomeWrapper:hover:after {
+.welcomeWrapper:hover:after {
   background-color: rgba(118, 16, 214, 0.24);
   -webkit-filter: blur(22px);
           filter: blur(22px);
@@ -224,16 +225,16 @@ nav li {
   }
 }
 
-#welcomeSection h1 {
-  font-size: 4rem;
+.welcomeWrapper h1 {
+  font-size: 3.8rem;
   margin: 0.2rem;
 }
 
-#welcomeSection h3 {
+.welcomeWrapper h3 {
   font-size: var(--h3FontSize);
 }
 
-#welcomeSection button {
+.callToAction {
   border: 0.1rem solid transparent;
   padding: 0.6rem 1rem;
   display: block;
@@ -244,7 +245,7 @@ nav li {
   cursor: pointer;
 }
 
-#welcomeSection .hoverScale:hover {
+.callToAction.hoverScale:hover {
   border: 0.1rem solid #f0f0f0 !important;
   background-color: #4f055c !important;
   color: #f0f0f0 !important;
@@ -621,7 +622,7 @@ button {
 
 .contactSection form .succesMessage h3 {
   cursor: pointer;
-  color: white;
+  color: #f0f0f0;
   border-radius: 0.6rem;
   padding: 0.4rem 2rem;
   font-size: var(--h3FontSize);
@@ -772,6 +773,9 @@ button {
 }
 
 @media (max-width: 840px) {
+  .App {
+    --h3FontSize: 1.8rem;
+  }
   .projectItem {
     display: block;
     -webkit-box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem white, inset 1rem 1rem 1rem rgba(255, 255, 255, 0.25);
@@ -798,23 +802,18 @@ button {
     line-height: 10rem;
   }
   .welcomeWrapper {
-    width: 20rem !important;
-    height: 20rem !important;
-    /*  button {
-      font-size: 1.4rem !important;
-    } */
+    width: 30rem;
+    height: 30rem;
   }
   .welcomeWrapper h1 {
-    font-size: 2.4rem !important;
-  }
-  .welcomeWrapper h3 {
-    font-size: 1.4rem !important;
+    font-size: 2.8rem !important;
   }
 }
 
 @media (max-width: 450px) {
   .App {
     --h1FontSize: 1.8rem;
+    --h3FontSize: 1.4rem;
   }
   nav .mainIcon {
     margin-right: 0;
@@ -830,6 +829,13 @@ button {
   }
   nav ul li {
     margin-right: 0;
+  }
+  .welcomeWrapper {
+    width: 20rem;
+    height: 20rem;
+  }
+  .welcomeWrapper h1 {
+    font-size: 2.2rem !important;
   }
   #portfolioSection .inner {
     padding-bottom: 0rem !important;
