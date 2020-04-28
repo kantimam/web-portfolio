@@ -537,7 +537,7 @@ button {
       }
     }
     textarea {
-      width: 40rem;
+      width: 50rem;
       display: block;
       max-width: 100%;
       border: 1px solid grey;
@@ -564,12 +564,12 @@ button {
       width: 100%;
 
       input {
-        margin-top: 0.4rem;
+        margin: 0.4rem 0;
         display: block;
         width: 100%;
         border-radius: 0.4rem;
         border: 1px solid grey;
-        padding: 0.2rem 0.4rem;
+        padding: 0.4rem 0.4rem;
       }
     }
 
@@ -597,7 +597,7 @@ button {
     margin: 0 auto;
     display: block;
     max-width: 100%;
-    width: 40rem;
+    width: 44rem;
   }
 }
 
