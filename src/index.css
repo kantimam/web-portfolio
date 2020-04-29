@@ -146,7 +146,8 @@ header #myLogo {
   height: auto;
 }
 
-#welcomeSection h1, #welcomeSection h3 {
+#welcomeSection h1,
+#welcomeSection h3 {
   color: #f0f0f0;
 }
 
@@ -337,7 +338,7 @@ button {
 }
 
 .projectItem .imgContainer,
-.projectItem .imageSlider {
+.projectItem .imgSliderLink {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1/3;
@@ -347,6 +348,11 @@ button {
   width: 100%;
   margin: 0 auto;
   border: 0.06rem solid #474747a4;
+}
+
+.projectItem .imgSlider {
+  width: 100%;
+  height: 100%;
 }
 
 .projectItem img {

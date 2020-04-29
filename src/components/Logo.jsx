@@ -3,7 +3,7 @@ import myLogo from '../images/myLogo.svg';
 
 const Logo = ({ onClick }) => {
     return (
-        <svg id="myLogo" className="mainIcon"/*  width="3rem" height="3rem" */ version="1.1" viewBox="0 0 68.157 79.226" xmlns="http://www.w3.org/2000/svg">
+        <svg onClick={onClick} id="myLogo" className="mainIcon"/*  width="3rem" height="3rem" */ version="1.1" viewBox="0 0 68.157 79.226" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(-42.166 -100.49)">
                 <g strokeWidth="1">
                     <path d="m74.655 100.49-7.7174 9.4165v23.447l-2.2386 3.2742h-4.1424v-18.936l-7.3499 8.9679v26.886l7.3499 8.9679v-18.936h4.1424l2.2386 3.2742v23.447l7.7174 9.4165v-34.935l-3.7558-4.6783 3.7558-4.6783z" />

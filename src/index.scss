@@ -22,7 +22,9 @@ body {
   --mainFontSize: 1.2rem;
   --h1FontSize: 2.8rem;
   --h3FontSize: 2rem;
-  font-family: /* "Ubuntu", "Roboto",*/"Rubik", Arial, Helvetica, sans-serif;
+  font-family:
+    /* "Ubuntu", "Roboto",*/
+    "Rubik", Arial, Helvetica, sans-serif;
 }
 
 
@@ -121,11 +123,12 @@ header {
     color: $fontLight;
     margin-right: 4rem;
   }
-  #myLogo{
+
+  #myLogo {
     fill: $fontLight;
     height: 2.8rem;
     max-height: 100%;
-    transform: scaleX(1.2);  // todo actually fix the logo^^
+    transform: scaleX(1.2); // todo actually fix the logo^^
   }
 }
 
@@ -139,7 +142,9 @@ header {
 }
 
 #welcomeSection {
-  h1, h3 {
+
+  h1,
+  h3 {
     color: $fontLight;
   }
 }
@@ -180,6 +185,7 @@ header {
       filter: blur(22px);
     }
   }
+
   @keyframes expandBubble {
     0% {
       opacity: 0.8;
@@ -198,14 +204,17 @@ header {
   }
 
   h1 {
-    font-size: /* calc(3vw + 0.5rem) */ 3.8rem;
+    font-size:
+      /* calc(3vw + 0.5rem) */
+      3.8rem;
     margin: 0.2rem;
   }
 
   h3 {
     font-size: var(--h3FontSize);
   }
-  #myLogo{
+
+  #myLogo {
     transform: scaleX(1.2);
     fill: transparent;
     stroke: white;
@@ -213,7 +222,7 @@ header {
     max-width: 40%;
     margin-bottom: 1rem;
   }
-  
+
 }
 
 .callToAction {
@@ -225,6 +234,7 @@ header {
   color: $mainColor;
   font-weight: bold;
   cursor: pointer;
+
   &.hoverScale:hover {
     border: 0.1rem solid $fontLight !important;
     background-color: $mainColor !important;
@@ -291,7 +301,7 @@ button {
   align-items: center;
 
   .imgContainer,
-  .imageSlider {
+  .imgSliderLink {
     grid-column: 1/3;
     overflow: hidden;
     border-radius: 0.4rem;
@@ -300,6 +310,12 @@ button {
     margin: 0 auto;
     border: 0.06rem solid #474747a4;
   }
+
+  .imgSlider {
+    width: 100%;
+    height: 100%;
+  }
+
 
   img {
     display: block;
@@ -350,6 +366,7 @@ button {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+
       div {
         margin-right: 0.2rem;
         font-size: calc(var(--mainFontSize) * 0.9);
@@ -362,7 +379,7 @@ button {
         margin: 0 0.4rem;
         
       } */
-      
+
 
       .npmIconLink {
         margin-left: auto;
@@ -396,8 +413,9 @@ button {
     height: 100%;
     background-image: linear-gradient(transparent 20%, var(--bgColor) 70%);
   }
-  .projectDescription{
-    h1{
+
+  .projectDescription {
+    h1 {
       font-size: var(--h3FontSize);
       color: rgb(118, 16, 214);
     }
@@ -513,12 +531,14 @@ button {
     max-width: 100%;
     text-align: left;
     position: relative;
-    .succesMessage{
+
+    .succesMessage {
       position: absolute;
       width: 100%;
       height: 6rem;
+
       /* background-image: linear-gradient(transparent, purple ,transparent); */
-      h3{
+      h3 {
         cursor: pointer;
         color: $fontLight;
         border-radius: 0.6rem;
@@ -527,28 +547,34 @@ button {
         font-weight: bold;
         animation: fadeIn 0.4s ease-in-out;
         max-width: 100%;
-        &.messageSucces{
+
+        &.messageSucces {
           background-color: $mainColor;
         }
-        &.messageFail{
+
+        &.messageFail {
           background-color: red;
 
         }
       }
-      @keyframes fadeIn{
-        0%{
+
+      @keyframes fadeIn {
+        0% {
           transform: scale(0);
           opacity: 0;
         }
-        80%{
+
+        80% {
           transform: scale(1.2);
           opacity: 1;
         }
-        100%{
+
+        100% {
           transform: scale(1);
         }
       }
     }
+
     textarea {
       width: 50rem;
       display: block;
@@ -635,9 +661,10 @@ button {
 }
 
 @media (max-width: 1020px) {
-  .App{
+  .App {
     --mainFontSize: 1rem;
   }
+
   /* .projectItem {
     .projectDescription {
       height: 100%;
@@ -647,9 +674,10 @@ button {
 }
 
 @media (max-width: 840px) {
-  .App{
+  .App {
     --h3FontSize: 1.8rem;
   }
+
   .projectItem {
     display: block;
     box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem rgb(255, 255, 255), inset 1rem 1rem 1rem hsla(0, 0%, 100%, .25);
@@ -664,7 +692,7 @@ button {
   }
 
   .moreProjects {
-    &.projectItem{
+    &.projectItem {
       box-shadow: unset;
     }
 
@@ -693,40 +721,50 @@ button {
 
 
 @media (max-width: 450px) {
-  .App{
+  .App {
     --h1FontSize: 1.8rem;
     --h3FontSize: 1.4rem;
   }
-  header{
-    .mainIcon{
+
+  header {
+    .mainIcon {
       margin-right: 0;
     }
-    ul{
+
+    ul {
       margin: 0 1rem;
       width: 100%;
       display: flex;
       justify-content: space-around;
-      li{
+
+      li {
         margin-right: 0;
       }
     }
   }
-  .welcomeWrapper{
+
+  .welcomeWrapper {
     width: 20rem;
     height: 20rem;
+
     h1 {
       font-size: 2.2rem !important;
     }
   }
-  #portfolioSection{
-    .inner{
+
+  #portfolioSection {
+    .inner {
       padding-bottom: 0rem !important;
-    };
-    .gitHubCard{
+    }
+
+    ;
+
+    .gitHubCard {
       min-height: 20rem !important;
     }
   }
-  .contactSection{
+
+  .contactSection {
     padding-top: 0;
   }
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import ProjectDescription from './ProjectDescription'
 import ProjectImage from './ProjectImage'
 import ImageSlider from './ImageSlider';
@@ -7,16 +7,16 @@ import ImageSlider from './ImageSlider';
 
 
 const ProjectsItem = ({ project }) => {
-    const [active, setActive]=useState(false);
+    const [active, setActive] = useState(false);
 
-    const { images=[] } = project;
-    const imagePaths=images.map(image=>process.env.REACT_APP_API_STATIC+"/"+image)
+    const { images = [] } = project;
+    const imagePaths = images.map(image => process.env.REACT_APP_API_STATIC + "/" + image)
 
-    const makeActive=()=>setActive(true);
-    const makeInactive=()=>setActive(false);
+    const makeActive = () => setActive(true);
+    const makeInactive = () => setActive(false);
 
     return (
-        <div 
+        <div
             onTouchStart={makeActive}
             onTouchEnd={makeInactive}
             onFocus={makeActive}
@@ -27,7 +27,9 @@ const ProjectsItem = ({ project }) => {
         >
             {/* <ProjectImage image={images[0]} /> */}
             {/* <ImageSlider images={images} duration={1400}/> */}
-            <ImageSlider active={active} images={imagePaths} duration={2400}/>
+            <a className="imgSliderLink" href={project.homepage}  target="_blank" rel="noopener noreferrer">
+                <ImageSlider active={active} images={imagePaths} duration={2400} />
+            </a>
             <ProjectDescription {...project} />
         </div>
     )
