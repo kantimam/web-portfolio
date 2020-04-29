@@ -1,12 +1,13 @@
 import React from 'react'
 import GithubIcon from './GithubIcon'
+import Logo from './Logo'
 
 const Nav = ({bgOpacity, scrollToPortfolio, scrollToContact, scrollTop}) => {
     if(!bgOpacity) return null
     return (
-        <nav>
-            <div className="inner flexCenterAll">
-                <div onClick={scrollTop} className="mainIcon">KI</div>
+        <header>
+            <nav className="inner flexCenterAll">
+                <Logo onClick={scrollTop}/>
                 <ul>
                     <li onClick={scrollToPortfolio}>projects</li>
                     <li onClick={scrollToContact}>contact</li>
@@ -14,8 +15,8 @@ const Nav = ({bgOpacity, scrollToPortfolio, scrollToContact, scrollTop}) => {
                 <a className="githubLink" href="https://github.com/kantimam">
                     <GithubIcon/>
                 </a>
-            </div>
-        </nav>
+            </nav>
+        </header>
     )
 }
 

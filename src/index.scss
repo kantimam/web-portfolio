@@ -78,7 +78,7 @@ main {
   max-width: 94%;
 }
 
-nav {
+header {
   background-color: rgba(38, 38, 38, calc(var(--bg-opacity) - 0.4));
   width: 100%;
   display: block;
@@ -120,6 +120,12 @@ nav {
     font-size: 1.4rem;
     color: $fontLight;
     margin-right: 4rem;
+  }
+  #myLogo{
+    fill: $fontLight;
+    height: 2.8rem;
+    max-height: 100%;
+    transform: scaleX(1.2);  // todo actually fix the logo^^
   }
 }
 
@@ -199,7 +205,14 @@ nav {
   h3 {
     font-size: var(--h3FontSize);
   }
-
+  #myLogo{
+    transform: scaleX(1.2);
+    fill: transparent;
+    stroke: white;
+    width: 8rem;
+    max-width: 40%;
+    margin: 1rem 0;
+  }
   
 }
 
@@ -684,7 +697,7 @@ button {
     --h1FontSize: 1.8rem;
     --h3FontSize: 1.4rem;
   }
-  nav{
+  header{
     .mainIcon{
       margin-right: 0;
     }

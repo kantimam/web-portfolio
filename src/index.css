@@ -82,7 +82,7 @@ main > section {
   max-width: 94%;
 }
 
-nav {
+header {
   background-color: rgba(38, 38, 38, calc(var(--bg-opacity) - 0.4));
   width: 100%;
   display: block;
@@ -91,42 +91,50 @@ nav {
   z-index: 2;
 }
 
-nav .inner {
+header .inner {
   height: 100%;
   /* background-color: red; */
 }
 
-nav .githubLink {
+header .githubLink {
   margin-left: auto;
   height: calc(100% - 0.6rem);
 }
 
-nav .githubIcon {
+header .githubIcon {
   height: 100%;
   opacity: var(--bg-opacity);
   -webkit-filter: invert(1);
           filter: invert(1);
 }
 
-nav ul {
+header ul {
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-nav li {
+header li {
   list-style-type: none;
 }
 
-nav .mainIcon,
-nav li {
+header .mainIcon,
+header li {
   font-weight: bold;
   cursor: pointer;
   opacity: var(--bg-opacity);
   font-size: 1.4rem;
   color: #f0f0f0;
   margin-right: 4rem;
+}
+
+header #myLogo {
+  fill: #f0f0f0;
+  height: 2.8rem;
+  max-height: 100%;
+  -webkit-transform: scaleX(1.2);
+          transform: scaleX(1.2);
 }
 
 .iconLink {
@@ -232,6 +240,16 @@ nav li {
 
 .welcomeWrapper h3 {
   font-size: var(--h3FontSize);
+}
+
+.welcomeWrapper #myLogo {
+  -webkit-transform: scaleX(1.2);
+          transform: scaleX(1.2);
+  fill: transparent;
+  stroke: white;
+  width: 8rem;
+  max-width: 40%;
+  margin: 1rem 0;
 }
 
 .callToAction {
@@ -815,10 +833,10 @@ button {
     --h1FontSize: 1.8rem;
     --h3FontSize: 1.4rem;
   }
-  nav .mainIcon {
+  header .mainIcon {
     margin-right: 0;
   }
-  nav ul {
+  header ul {
     margin: 0 1rem;
     width: 100%;
     display: -webkit-box;
@@ -827,7 +845,7 @@ button {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
-  nav ul li {
+  header ul li {
     margin-right: 0;
   }
   .welcomeWrapper {
