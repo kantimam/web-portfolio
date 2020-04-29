@@ -312,6 +312,7 @@ button {
 
   .imgContainer, .imageSlider {
     width: 100%;
+    overflow: hidden;
     border-radius: 0.4rem;
     border: 0.06rem solid #474747a4;
   }
