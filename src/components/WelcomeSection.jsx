@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {memo} from 'react'
 import Logo from './Logo'
 
 const WelcomeSection = ({ scrollToPortfolio }) => {
+
     return (
         <section className="flexCenterAll centerText" id="welcomeSection">
             <div className="welcomeWrapper flexCenterAll">
@@ -14,4 +15,4 @@ const WelcomeSection = ({ scrollToPortfolio }) => {
     )
 }
 
-export default WelcomeSection
+export default memo(WelcomeSection)

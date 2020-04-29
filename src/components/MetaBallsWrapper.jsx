@@ -1,11 +1,10 @@
-import React from 'react'
+import React, {memo} from 'react'
 import MetaBalls from '../metaballs'
 
 const metaConfig = new Array(18).fill(0);
 
 
 const MetaBallsWrapper = () => {
-    
 
     return (
         <div id="metaBallsWrapper">
@@ -19,4 +18,4 @@ const MetaBallsWrapper = () => {
     )
 }
 
-export default MetaBallsWrapper
+export default memo(MetaBallsWrapper)

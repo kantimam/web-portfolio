@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import GithubIcon from './GithubIcon'
 import Logo from './Logo'
 
@@ -20,4 +20,4 @@ const Nav = ({bgOpacity, scrollToPortfolio, scrollToContact, scrollTop}) => {
     )
 }
 
-export default Nav
+export default memo(Nav)
