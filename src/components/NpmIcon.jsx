@@ -5,7 +5,7 @@ const NpmIcon = ({ packageLink }) => {
     
     if (!packageLink) return null;
     return (
-        <a className="npmIconLink" href={packageLink}>
+        <a className="npmIconLink" href={packageLink} target="_blank" rel="noopener noreferrer">
             <img className="npmIcon" src={npm} alt="npm" />
         </a>
     )

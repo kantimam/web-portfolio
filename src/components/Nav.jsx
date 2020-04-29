@@ -12,7 +12,7 @@ const Nav = ({bgOpacity, scrollToPortfolio, scrollToContact, scrollTop}) => {
                     <li onClick={scrollToPortfolio}>projects</li>
                     <li onClick={scrollToContact}>contact</li>
                 </ul>
-                <a className="githubLink" href="https://github.com/kantimam">
+                <a className="githubLink" href="https://github.com/kantimam" target="_blank" rel="noopener noreferrer">
                     <GithubIcon/>
                 </a>
             </nav>
