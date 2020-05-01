@@ -6,11 +6,11 @@ const ContactSection = forwardRef((props, ref) => {
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
 
-    const [send, setSend]=useState({succes: false, message: ""});
+    const [send, setSend] = useState({ succes: false, message: "" });
 
     const sendMail = (event) => {
         event.preventDefault();
-        const url = process.env.REACT_APP_API_BASE+"/sendmail";
+        const url = process.env.REACT_APP_API_BASE + "/sendmail";
 
         var urlencoded = new URLSearchParams();
         urlencoded.append("email", email);
@@ -24,32 +24,34 @@ const ContactSection = forwardRef((props, ref) => {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: urlencoded
-        }).then(res => 
-            res.json()           
-        ).then(_data =>{
+        }).then(res =>
+            res.json()
+        ).then(_data => {
             createMessage(true, "succesfully send")
         })
-        .catch(_e => createMessage(false, "failed to send send"))
+            .catch(_e => createMessage(false, "failed to send send"))
 
     }
 
-    const createMessage=(succes, message)=>{
-        setSend({succes: succes, message: message})
-        setTimeout(()=>setSend({succes: false, message: ""}), 4000);
+    const createMessage = (succes, message) => {
+        setSend({ succes: succes, message: message })
+        setTimeout(() => setSend({ succes: false, message: "" }), 4000);
     }
 
     return (
         <section ref={ref} className="contactSection flexCenterAll">
             <div className="inner">
-                <h1>get in contact</h1>
+                <h3 className="sectionHeader">
+                    {"<contact>"}
+                </h3>
                 <img src={contact} alt="" />
                 <form onSubmit={sendMail}>
-                    {send.message && 
-                        <div onClick={()=>setSend({succes: false, message: ""})} className="succesMessage flexCenterAll">
-                            {send.succes?
+                    {send.message &&
+                        <div onClick={() => setSend({ succes: false, message: "" })} className="succesMessage flexCenterAll">
+                            {send.succes ?
                                 <h3 className="messageSucces">
                                     {send.message}
-                                </h3>:
+                                </h3> :
                                 <h3 className="messageFail">
                                     {send.message}
                                 </h3>

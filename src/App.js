@@ -5,6 +5,7 @@ import WelcomeSection from './components/WelcomeSection';
 import Nav from './components/Nav';
 import ImageSlider from './components/ImageSlider';
 import ContactSection from './components/ContactSection';
+import SkillsSection from './components/SkillsSection';
 
 
 
@@ -76,6 +77,7 @@ export default class App extends Component {
             />
             <WelcomeSection scrollToPortfolio={this.scrollToPortfolio} />
             <PortfolioSection ref={this.portfolioSectionRef} />
+            <SkillsSection/>
             <ContactSection ref={this.contactSectionRef} />
           </main>
         </div>

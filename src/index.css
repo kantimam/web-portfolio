@@ -12,9 +12,11 @@ body {
 .App {
   position: relative;
   --bgColor: rgb(240, 240, 240);
+  --fadedBgColor: rgba(220, 220, 220, var(--bg-opacity));
   --mainFontSize: 1.2rem;
   --h1FontSize: 2.8rem;
   --h3FontSize: 2rem;
+  --navFontSize: 1.4rem;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
 
@@ -86,7 +88,7 @@ header {
   background-color: rgba(38, 38, 38, calc(var(--bg-opacity) - 0.4));
   width: 100%;
   display: block;
-  height: 3rem;
+  height: 3.2rem;
   position: fixed;
   z-index: 2;
 }
@@ -124,7 +126,7 @@ header li {
   font-weight: bold;
   cursor: pointer;
   opacity: var(--bg-opacity);
-  font-size: 1.4rem;
+  font-size: var(--navFontSize);
   color: #f0f0f0;
   margin-right: 4rem;
 }
@@ -272,7 +274,6 @@ header #myLogo {
 
 button {
   border: none;
-  /* border-radius: 0.2rem; */
   font-size: var(--mainFontSize);
 }
 
@@ -317,7 +318,14 @@ button {
 }
 
 #portfolioSection .inner {
-  padding: 4.2rem 0 10rem 0;
+  padding: 6.2rem 0 2rem 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  font-size: var(--h3FontSize);
+  color: rgba(0, 0, 0, calc(var(--bg-opacity)));
+  font-weight: bold;
 }
 
 .projectList {
@@ -327,7 +335,7 @@ button {
 .projectItem {
   width: 100%;
   max-width: 100%;
-  margin-top: 2.4rem;
+  margin-top: 3.2rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[5];
@@ -335,6 +343,10 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85;
+          box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85;
+  border-radius: 0.4rem;
+  background-color: rgba(240, 240, 240, 0.2);
 }
 
 .projectItem .imgContainer,
@@ -348,11 +360,12 @@ button {
   margin: 0 auto;
 }
 
-.projectItem .imgContainer, .projectItem .imageSlider {
+.projectItem .imgContainer,
+.projectItem .imageSlider {
   width: 100%;
   overflow: hidden;
   border-radius: 0.4rem;
-  border: 0.06rem solid #474747a4;
+  /* border: 0.06rem solid #474747a4; */
 }
 
 .projectItem img {
@@ -365,13 +378,8 @@ button {
 .projectItem .projectDescription {
   grid-column: 3/-1;
   width: 100%;
-  min-height: calc(100% - 1.4rem);
-  border-top-right-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem;
+  min-height: 100%;
   padding: 0.8rem 1rem;
-  -webkit-box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85;
-          box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85;
-  /* background-color: rgba(240, 240, 240, 0.2); */
   font-size: var(--mainFontSize);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -421,12 +429,6 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /* img{
-        height: 2rem;
-        width: auto;
-        margin: 0 0.4rem;
-        
-      } */
 }
 
 .projectItem .projectDescription .techStackList div {
@@ -449,9 +451,11 @@ button {
 } */
 .moreProjects {
   cursor: pointer;
-  height: 10rem;
+  height: 14rem;
   overflow: hidden;
   position: relative;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
 }
 
 .moreProjects:after {
@@ -461,8 +465,8 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, transparent), color-stop(70%, var(--bgColor)));
-  background-image: linear-gradient(transparent 20%, var(--bgColor) 70%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, transparent), color-stop(80%, var(--bgColor)));
+  background-image: linear-gradient(transparent 20%, var(--bgColor) 80%);
 }
 
 .moreProjects .projectDescription h1 {
@@ -484,7 +488,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   flex-direction: column;
-  min-height: 44rem;
+  min-height: 38rem;
 }
 
 .gitHubCard .allLoadedGraphic {
@@ -619,6 +623,10 @@ button {
   }
 }
 
+.skillsSection {
+  padding: 2rem 0;
+}
+
 .contactSection {
   padding-top: 4rem;
   height: unset;
@@ -637,6 +645,11 @@ button {
   position: relative;
 }
 
+.contactSection form * {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  background-color: var(--bgColor);
+}
+
 .contactSection form .succesMessage {
   position: absolute;
   width: 100%;
@@ -649,7 +662,7 @@ button {
   color: #f0f0f0;
   border-radius: 0.6rem;
   padding: 0.4rem 2rem;
-  font-size: var(--h3FontSize);
+  /* font-size: var(--h3FontSize); */
   font-weight: bold;
   -webkit-animation: fadeIn 0.4s ease-in-out;
           animation: fadeIn 0.4s ease-in-out;
@@ -699,11 +712,12 @@ button {
 }
 
 .contactSection form textarea {
-  width: 50rem;
+  width: 44rem;
+  max-width: 44rem;
   display: block;
   max-width: 100%;
   border: 1px solid grey;
-  border-radius: 0.4rem;
+  /* border-radius: 0.4rem; */
   padding: 0.2rem 0.4rem;
   margin: 0.4rem 0 1rem 0;
 }
@@ -732,28 +746,25 @@ button {
   margin: 0.4rem 0;
   display: block;
   width: 100%;
-  border-radius: 0.4rem;
+  /* border-radius: 0.4rem; */
   border: 1px solid grey;
   padding: 0.4rem 0.4rem;
 }
 
 .contactSection form #submitInput {
-  margin: 4rem auto 2rem auto;
+  margin: 2.4rem auto 2rem auto;
   /* display: block; */
   background-color: #4f055c;
   border: 0.1rem transparent;
   color: #f0f0f0;
   padding: 0.6rem 1.2rem;
   font-size: var(--mainFontSize);
-  /* width: 100%; */
-  width: 100%;
-  border-radius: 0.4rem;
+  /* border-radius: 0.4rem; */
 }
 
-.contactSection h1 {
-  text-transform: uppercase;
-  text-align: center;
-  font-size: var(--h1FontSize);
+.contactSection .sectionHeader {
+  /* text-align: left; */
+  margin-bottom: 1.4rem;
 }
 
 .contactSection img {
@@ -802,21 +813,18 @@ button {
   }
   .projectItem {
     display: block;
-    -webkit-box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem white, inset 1rem 1rem 1rem rgba(255, 255, 255, 0.25);
-            box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem white, inset 1rem 1rem 1rem rgba(255, 255, 255, 0.25);
     border-radius: 0.4rem;
     overflow: hidden;
   }
   .projectItem .projectDescription {
     min-height: 12rem;
-    -webkit-box-shadow: unset;
-            box-shadow: unset;
-    padding: 0.6rem 0.4rem 0.2rem 0.4rem;
+    padding: 0.6rem 0.4rem 0.4rem 0.4rem;
   }
-  .projectItem .imageSlider, .projectItem .imgContainer {
+  .projectItem .imageSlider,
+  .projectItem .imgContainer {
     border: none;
   }
-  .moreProjects.projectItem {
+  .moreProjects {
     -webkit-box-shadow: unset;
             box-shadow: unset;
   }
@@ -827,6 +835,9 @@ button {
     content: "LOAD MORE";
     text-align: center;
     line-height: 10rem;
+  }
+  .gitHubCard {
+    min-height: 30rem;
   }
   .welcomeWrapper {
     width: 30rem;
