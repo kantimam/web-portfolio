@@ -77,7 +77,6 @@ export default class App extends Component {
             />
             <WelcomeSection scrollToPortfolio={this.scrollToPortfolio} />
             <PortfolioSection ref={this.portfolioSectionRef} />
-            <SkillsSection/>
             <ContactSection ref={this.contactSectionRef} />
           </main>
         </div>

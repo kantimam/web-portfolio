@@ -156,6 +156,7 @@ header #myLogo {
 }
 
 #welcomeSection h1,
+#welcomeSection h2,
 #welcomeSection h3 {
   color: #f0f0f0;
 }
@@ -202,7 +203,6 @@ header #myLogo {
 }
 
 .welcomeWrapper:hover:after {
-  /* $secColor: rgb(255, 0, 106);*/
   background-color: rgba(255, 0, 106, 0.24);
   -webkit-filter: blur(22px);
           filter: blur(22px);
@@ -245,8 +245,22 @@ header #myLogo {
 }
 
 .welcomeWrapper h1 {
-  font-size: 3.8rem;
+  font-size: 4rem;
   margin: 0.2rem;
+  /* background-image: linear-gradient(40deg, $mainColor, $secColor);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent; */
+}
+
+.welcomeWrapper h2 {
+  margin-top: 0.4rem;
+  font-size: var(--headerFontSize);
+  margin-bottom: 0.1rem;
+}
+
+.welcomeWrapper h3 {
+  font-size: calc(var(--headerFontSize) * 0.9);
 }
 
 .welcomeWrapper #myLogo {
@@ -641,11 +655,31 @@ header #myLogo {
   }
 }
 
-.skillsSection {
+/* .skillsSection {
   padding: 2rem 0;
-  /* background-image: linear-gradient(var(--bgColor), var(--bgDark)); */
-}
 
+  .skillsList {
+    margin-top: 3.2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+  }
+
+  .skillsCard {
+    padding: 0.6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+      text-align: center;
+      font-size: var(--mainFontSize);
+      margin-bottom: 0.4rem;
+    }
+
+  }
+} */
 .contactSection {
   padding: 6rem 0 3rem 0;
   height: unset;
@@ -841,17 +875,24 @@ header #myLogo {
   font-weight: bold;
 }
 
+.contactSection .aboutContainer .aboutInner .aboutGhLink {
+  margin-bottom: 2rem;
+  background-image: url(./images/github.png);
+}
+
 .contactSection .aboutContainer .aboutInner .mailLink {
   margin-top: 2rem;
+  margin-bottom: 1rem;
+  background-image: url(./images/send-2.svg);
 }
 
 .contactSection .aboutContainer .aboutInner a {
   font-weight: bold;
   display: block;
-}
-
-.contactSection .aboutContainer .aboutInner .aboutGhLink {
-  margin-bottom: 2rem;
+  background-size: var(--mainFontSize);
+  background-repeat: no-repeat;
+  background-position: 0 center;
+  padding-left: 2rem;
 }
 
 .contactSection .aboutContainer .aboutInner .currentStatus {

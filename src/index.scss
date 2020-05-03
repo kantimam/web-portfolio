@@ -155,6 +155,7 @@ header {
 #welcomeSection {
 
   h1,
+  h2,
   h3 {
     color: $fontLight;
   }
@@ -192,7 +193,6 @@ header {
 
   &:hover {
     &:after {
-      /* $secColor: rgb(255, 0, 106);*/
       background-color: rgba(255, 0, 106, 0.24);
       filter: blur(22px);
     }
@@ -216,12 +216,26 @@ header {
   }
 
   h1 {
-    font-size:
-      /* calc(3vw + 0.5rem) */
-      3.8rem;
+    font-size: 4rem;
     margin: 0.2rem;
+    /* background-image: linear-gradient(40deg, $mainColor, $secColor);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent; */
+
   }
 
+  h2 {
+    margin-top: 0.4rem;
+    font-size: var(--headerFontSize);
+    margin-bottom: 0.1rem;
+
+  }
+
+  h3 {
+    font-size: calc(var(--headerFontSize) * 0.9);
+
+  }
 
   #myLogo {
     transform: scaleX(1.2);
@@ -402,8 +416,7 @@ header {
 } */
 
 .neomorphism {
-  box-shadow:
-    0.4rem 0.4rem 0.8rem #3d3d3d77,
+  box-shadow: 0.4rem 0.4rem 0.8rem #3d3d3d77,
     -0.5rem -0.5rem 1.2rem #f5f5f5a2,
     0.4rem 0.4rem 2rem #ffffff4d inset;
 
@@ -412,8 +425,7 @@ header {
 }
 
 .neomorphismInvert {
-  box-shadow:
-    0.3rem 0.3rem 0.2rem #3d3d3d54 inset,
+  box-shadow: 0.3rem 0.3rem 0.2rem #3d3d3d54 inset,
     -0.2rem -0.2rem 0.2rem #ffffffa2 inset,
     /* 0.4rem 0.4rem 2rem #3d3d3d77 inset */
   ;
@@ -552,12 +564,31 @@ header {
 }
 
 
-.skillsSection {
+/* .skillsSection {
   padding: 2rem 0;
 
-  /* background-image: linear-gradient(var(--bgColor), var(--bgDark)); */
-  .inner {}
-}
+  .skillsList {
+    margin-top: 3.2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+  }
+
+  .skillsCard {
+    padding: 0.6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+      text-align: center;
+      font-size: var(--mainFontSize);
+      margin-bottom: 0.4rem;
+    }
+
+  }
+} */
 
 
 
@@ -718,18 +749,27 @@ header {
         font-weight: bold;
       }
 
+
+      .aboutGhLink {
+        margin-bottom: 2rem;
+        background-image: url(./images/github.png);
+      }
+
       .mailLink {
         margin-top: 2rem;
+        margin-bottom: 1rem;
+        background-image: url(./images/send-2.svg);
       }
 
       a {
         font-weight: bold;
         display: block;
+        background-size: var(--mainFontSize);
+        background-repeat: no-repeat;
+        background-position: 0 center;
+        padding-left: 2rem;
       }
 
-      .aboutGhLink {
-        margin-bottom: 2rem;
-      }
 
       .currentStatus {
         font-size: var(--navFontSize);
