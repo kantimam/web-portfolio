@@ -1,4 +1,3 @@
-/* $secColor: rgb(118, 16, 214);*/
 html,
 body {
   overflow-x: hidden;
@@ -44,7 +43,6 @@ a {
 }
 
 .contentDiv {
-  /* background-color: rgba(100,100,100,0.4); */
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -102,7 +100,6 @@ header {
 
 header .inner {
   height: 100%;
-  /* background-color: red; */
 }
 
 header .githubLink {
@@ -247,10 +244,7 @@ header #myLogo {
 .welcomeWrapper h1 {
   font-size: 4rem;
   margin: 0.2rem;
-  /* background-image: linear-gradient(40deg, $mainColor, $secColor);
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent; */
+  text-transform: uppercase;
 }
 
 .welcomeWrapper h2 {
@@ -291,11 +285,8 @@ header #myLogo {
 }
 
 .gradientButton:hover {
-  /* transform: scale(1.05); */
   background-size: 360%;
   background-position: 100% 0;
-  /* filter: saturate(1.2); */
-  /* filter: contrast(1.4); */
   -webkit-filter: brightness(1.2) saturate(1.1);
           filter: brightness(1.2) saturate(1.1);
 }
@@ -374,7 +365,6 @@ header #myLogo {
   width: 100%;
   overflow: hidden;
   border-radius: 0.4rem;
-  /* border: 0.06rem solid #474747a4; */
 }
 
 .projectItem img {
@@ -455,9 +445,6 @@ header #myLogo {
   width: auto;
 }
 
-/* .fancyShadow {
-  box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem #fff, inset 1rem 1rem 1rem hsla(0,0%,100%,.25);
-} */
 .neomorphism {
   -webkit-box-shadow: 0.4rem 0.4rem 0.8rem #3d3d3d77, -0.5rem -0.5rem 1.2rem #f5f5f5a2, 0.4rem 0.4rem 2rem #ffffff4d inset;
           box-shadow: 0.4rem 0.4rem 0.8rem #3d3d3d77, -0.5rem -0.5rem 1.2rem #f5f5f5a2, 0.4rem 0.4rem 2rem #ffffff4d inset;
@@ -520,8 +507,6 @@ header #myLogo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /* 
-    justify-content: center; */
 }
 
 .gitHubCard .allLoadedGraphic.animationActive h1 {
@@ -655,33 +640,8 @@ header #myLogo {
   }
 }
 
-/* .skillsSection {
-  padding: 2rem 0;
-
-  .skillsList {
-    margin-top: 3.2rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
-  }
-
-  .skillsCard {
-    padding: 0.6rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    h3 {
-      text-align: center;
-      font-size: var(--mainFontSize);
-      margin-bottom: 0.4rem;
-    }
-
-  }
-} */
 .contactSection {
-  padding: 6rem 0 3rem 0;
+  padding: 12rem 0 3rem 0;
   height: unset;
 }
 
@@ -708,7 +668,6 @@ header #myLogo {
 
 .contactSection form {
   display: inline-block;
-  /* padding: 1rem 0.2rem; */
   max-width: 100%;
   width: 100%;
   text-align: left;
@@ -717,7 +676,6 @@ header #myLogo {
 
 .contactSection form * {
   border-color: rgba(0, 0, 0, 0.2) !important;
-  /* background-color: var(--bgColor); */
 }
 
 .contactSection form .succesMessage {
@@ -922,9 +880,12 @@ header #myLogo {
      object-fit: cover;
 }
 
-/* @media (max-width: 1020px) {
-  .App {}
-} */
+@media (max-width: 1020px) {
+  .contactSection {
+    padding-top: 6rem;
+  }
+}
+
 @media (max-width: 840px) {
   .App {
     --headerFontSize: 1.4rem;
@@ -986,6 +947,9 @@ header #myLogo {
   }
   .contactSection .inner .formContainer {
     margin-top: 3.2rem;
+  }
+  .contactSection .inner .formContainer.neomorphism {
+    padding: 1.2rem 0.8rem;
   }
 }
 

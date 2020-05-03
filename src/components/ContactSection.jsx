@@ -106,12 +106,12 @@ const ContactSection = forwardRef((props, ref) => {
                 </div>
                 <div className="aboutContainer neomorphism">
                     <h3>lets connect</h3>
-                    <p>can i be of service or just want to chat?</p>
+                    <p>Can I be of service or just want to chat?</p>
                     <div className="aboutInner">
                         <p className="aboutName">Kantemir Imamov</p>
                         <p >Software Engineer with a passion for graphics and novel ideas based in Berlin.</p>
                         <a className="mailLink" href="mailto:kantemir.imam@gmail.com">kantemir.imam@gmail.com</a>
-                        <a className="aboutGhLink" href="https://github.com/kantimam" target="_blank" rel="noopener noreferrer">kant imam github</a>
+                        <a className="aboutGhLink" href="https://github.com/kantimam" target="_blank" rel="noopener noreferrer">Kant Imam Github</a>
                         <div className="currentStatus">
                             currently available
                         </div>

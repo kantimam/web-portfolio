@@ -7,7 +7,7 @@ const WelcomeSection = ({ scrollToPortfolio }) => {
         <section className="flexCenterAll centerText" id="welcomeSection">
             <div className="welcomeWrapper flexCenterAll">
                 <Logo />
-                <h1>Lets Create</h1>
+                <h1>let's create</h1>
                 <h2>Full-Stack Developer</h2>
 
                 <h3>Kantemir Imamov</h3>
