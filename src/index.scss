@@ -135,11 +135,7 @@ header {
 }
 
 
-h1,
-h2,
-h3 {
-  color: $fontLight;
-}
+
 
 .welcomeWrapper {
   border-radius: 30rem;
@@ -153,6 +149,10 @@ h3 {
   position: relative;
   transform-style: preserve-3d;
 
+  * {
+    color: $fontLight;
+  }
+
   &:after {
     z-index: -1;
     content: "";
@@ -164,7 +164,7 @@ h3 {
     height: 100%;
     opacity: 0.8;
     border-radius: 100%;
-    background-image: radial-gradient(rgba(0, 0, 0, 0.8) 30%, transparent 72%);
+    background-image: radial-gradient(rgba(0, 0, 0, 0.959) 30%, transparent 72%);
     transform: translateZ(-1px);
     animation: expandBubble 8s infinite ease-in-out;
     transition: 3s;
