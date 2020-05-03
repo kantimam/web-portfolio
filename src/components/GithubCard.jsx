@@ -27,13 +27,13 @@ const GithubCard = () => {
         <div className="gitHubCard">
             <div className={`allLoadedGraphic ${animate ? "animationActive" : ""}`}>
                 <img src={gitPic} alt="git pic" />
-                <section>
+                <a href="https://github.com/kantimam" target="_blank" rel="noopener noreferrer">
                     <h3>even more projects on</h3>
-                    <h1>Github</h1>
-                </section>
+                    <h1>{"<Github/>"}</h1>
+                </a>
             </div>
-            <div ref={scrollRef} className="flexCenterAll">
-                <GitHubCalendar blockSize={16} username="kantimam" />
+            <div ref={scrollRef} className="calenderContainer" /* className="flexCenterAll" */>
+                <GitHubCalendar blockSize={18} username="kantimam" />
             </div>
         </div>
     )

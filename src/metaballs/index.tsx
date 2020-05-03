@@ -39,7 +39,6 @@ const MetaBalls: React.FC<propTypes> = ({ orbData, innerContainer=defaultInnerCo
   const canvasRef = useRef<HTMLCanvasElement>(null);
   let innerRef = useRef<HTMLElement>(null);
 
-
   useLayoutEffect(() => {
     let metaball: MetaBallsRenderer;
     if(canvasRef.current && innerRef.current){

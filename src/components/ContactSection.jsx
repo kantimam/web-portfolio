@@ -41,39 +41,76 @@ const ContactSection = forwardRef((props, ref) => {
     return (
         <section ref={ref} className="contactSection flexCenterAll">
             <div className="inner">
-                <h3 className="sectionHeader">
+                {/* <h3 className="sectionHeader">
                     {"<contact>"}
-                </h3>
-                <img src={contact} alt="" />
-                <form onSubmit={sendMail}>
-                    {send.message &&
-                        <div onClick={() => setSend({ succes: false, message: "" })} className="succesMessage flexCenterAll">
-                            {send.succes ?
-                                <h3 className="messageSucces">
-                                    {send.message}
-                                </h3> :
-                                <h3 className="messageFail">
-                                    {send.message}
-                                </h3>
-                            }
-                        </div>
-                    }
+                </h3> */}
+                <div className="formContainer  neomorphism">
 
-                    <label className="required" htmlFor="message">message</label>
-                    <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="would be happy to hear from you! :) " id="message" name="message" cols="30" rows="10" required></textarea>
-                    <div className="contactRow">
-                        <div>
-                            <label htmlFor="nameInput">name</label>
-                            <input value={name} onChange={(e) => setName(e.target.value)} placeholder="let me know your name :)" type="text" name="name" id="nameInput" />
+                    {/* <img src={contact} alt="" /> */}
+                    <form onSubmit={sendMail}>
+                        {send.message &&
+                            <div onClick={() => setSend({ succes: false, message: "" })} className="succesMessage flexCenterAll">
+                                {send.succes ?
+                                    <h3 className="messageSucces">
+                                        {send.message}
+                                    </h3> :
+                                    <h3 className="messageFail">
+                                        {send.message}
+                                    </h3>
+                                }
+                            </div>
+                        }
+
+                        <label className="required" htmlFor="message">message</label>
+                        <textarea 
+                            value={message} 
+                            onChange={(e) => setMessage(e.target.value)} 
+                            placeholder="would be happy to hear from you! :) " 
+                            id="message" 
+                            className="neomorphismInvert"
+                            name="message" 
+                            cols="30" 
+                            rows="10" 
+                            required>
+                        </textarea>
+                        <div className="contactRow">
+                            <div>
+                                <label htmlFor="nameInput">name</label>
+                                <input
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)} 
+                                    placeholder="let me know your name :)" 
+                                    type="text" 
+                                    name="name" 
+                                    id="nameInput"
+                                    className="neomorphismInvert"
+                                />
+                            </div>
+                            <div>
+                                <label className="required" htmlFor="emailInput">email</label>
+                                <input
+                                    className="neomorphismInvert"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                    placeholder="some way to contact you"
+                                    type="email"
+                                    name="mail"
+                                    id="emailInput"
+                                    required
+                                />
+                            </div>
+
                         </div>
-                        <div>
-                            <label className="required" htmlFor="emailInput">email</label>
-                            <input value={email} onChange={e => setEmail(e.target.value)} placeholder="some way to contact you" type="email" name="mail" id="emailInput" required />
-                        </div>
+                        <input className="gradientButton" id="submitInput" type="submit" value="SEND MESSAGE" />
+                    </form>
+                </div>
+                <div className="aboutContainer neomorphism">
+                    <h3>lets connect</h3>
+                    <div className="aboutInner">
+                        <p>mail: kantemir.imam@gmail.com</p>
 
                     </div>
-                    <input id="submitInput" type="submit" value="SEND MESSAGE" />
-                </form>
+                </div>
             </div>
 
         </section>

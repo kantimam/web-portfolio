@@ -20,7 +20,7 @@ const ProjectDescription = ({ name="", description="", technologies=["react", "n
                     <GithubIcon/>
                 </a>
             </div>
-            <p>{description}</p>
+            <p className="descriptionText">{description}</p>
             <div className="techStackList">
                 {technologies.map(i =><IconOrText name={i} key={`item_${id}_${i}`}/>)}
                 <NpmIcon packageLink={packageLink}/> 

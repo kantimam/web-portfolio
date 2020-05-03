@@ -1,3 +1,4 @@
+/* $secColor: rgb(118, 16, 214);*/
 html,
 body {
   overflow-x: hidden;
@@ -9,6 +10,10 @@ body {
           box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 .App {
   position: relative;
   --bgColor: rgb(240, 240, 240);
@@ -17,6 +22,8 @@ body {
   --h1FontSize: 2.8rem;
   --h3FontSize: 2rem;
   --navFontSize: 1.4rem;
+  --navHeight: 3.2rem;
+  --bgDark: rgb(38, 38, 38, 0.6);
   font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
 
@@ -195,7 +202,8 @@ header #myLogo {
 }
 
 .welcomeWrapper:hover:after {
-  background-color: rgba(118, 16, 214, 0.24);
+  /* $secColor: rgb(255, 0, 106);*/
+  background-color: rgba(255, 0, 106, 0.24);
   -webkit-filter: blur(22px);
           filter: blur(22px);
 }
@@ -255,38 +263,31 @@ header #myLogo {
   margin-bottom: 1rem;
 }
 
-.callToAction {
-  border: 0.1rem solid transparent;
-  padding: 0.6rem 1rem;
+.gradientButton {
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem 1.2rem;
   display: block;
   margin: 2rem auto 0 auto;
-  background-color: #f0f0f0;
-  color: #4f055c;
+  background-color: transparent;
+  background-image: repeating-linear-gradient(60deg, #4f055c, #ff006a, #4f055c);
+  background-size: 200%;
+  color: #f0f0f0;
   font-weight: bold;
   cursor: pointer;
-}
-
-.callToAction.hoverScale:hover {
-  border: 0.1rem solid #f0f0f0 !important;
-  background-color: #4f055c !important;
-  color: #f0f0f0 !important;
-}
-
-button {
-  border: none;
   font-size: var(--mainFontSize);
+  -webkit-transition: 1.2s;
+  transition: 1.2s;
 }
 
-.callToAction {
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
-  transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
-}
-
-.hoverScale:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+.gradientButton:hover {
+  /* transform: scale(1.05); */
+  background-size: 360%;
+  background-position: 100% 0;
+  /* filter: saturate(1.2); */
+  /* filter: contrast(1.4); */
+  -webkit-filter: brightness(1.2) saturate(1.1);
+          filter: brightness(1.2) saturate(1.1);
 }
 
 .fadeInColor {
@@ -322,7 +323,7 @@ button {
 }
 
 .sectionHeader {
-  text-align: center;
+  text-align: left;
   font-size: var(--h3FontSize);
   color: rgba(0, 0, 0, calc(var(--bg-opacity)));
   font-weight: bold;
@@ -343,8 +344,6 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85;
-          box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85;
   border-radius: 0.4rem;
   background-color: rgba(240, 240, 240, 0.2);
 }
@@ -404,7 +403,7 @@ button {
   font-size: var(--h3FontSize);
   font-weight: bold;
   text-decoration: none;
-  color: #7610d6;
+  color: #ff006a;
 }
 
 .projectItem .projectDescription .projectTitle .githubLink {
@@ -413,8 +412,8 @@ button {
   width: 2rem;
 }
 
-.projectItem .projectDescription p {
-  margin: 1rem 0;
+.projectItem .projectDescription .descriptionText {
+  margin: 1.2rem 1.2rem 1.2rem 0;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -449,6 +448,19 @@ button {
 /* .fancyShadow {
   box-shadow: 0.4rem 0.4rem 1rem #9c9c9c85, -0.4rem -0.4rem 1rem #fff, inset 1rem 1rem 1rem hsla(0,0%,100%,.25);
 } */
+.neomorphism {
+  -webkit-box-shadow: 0.4rem 0.4rem 0.8rem #3d3d3d77, -0.5rem -0.5rem 1.2rem #f5f5f5a2, 0.4rem 0.4rem 2rem #ffffff4d inset;
+          box-shadow: 0.4rem 0.4rem 0.8rem #3d3d3d77, -0.5rem -0.5rem 1.2rem #f5f5f5a2, 0.4rem 0.4rem 2rem #ffffff4d inset;
+  border-radius: 0.4rem;
+}
+
+.neomorphismInvert {
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem #3d3d3d54 inset, -0.2rem -0.2rem 0.2rem #ffffffa2 inset;
+          box-shadow: 0.3rem 0.3rem 0.2rem #3d3d3d54 inset, -0.2rem -0.2rem 0.2rem #ffffffa2 inset;
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
 .moreProjects {
   cursor: pointer;
   height: 14rem;
@@ -471,7 +483,7 @@ button {
 
 .moreProjects .projectDescription h1 {
   font-size: var(--h3FontSize);
-  color: #7610d6;
+  color: #ff006a;
 }
 
 .moreProjects .imgContainer {
@@ -498,9 +510,8 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  /* 
+    justify-content: center; */
 }
 
 .gitHubCard .allLoadedGraphic.animationActive h1 {
@@ -519,6 +530,7 @@ button {
 }
 
 .gitHubCard h3 {
+  color: #ff006a;
   font-size: var(--h3FontSize);
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
@@ -526,6 +538,7 @@ button {
 }
 
 .gitHubCard h1 {
+  color: #ff006a;
   margin-top: 1rem;
   font-size: var(--h1FontSize);
   -webkit-transform: translateX(100%);
@@ -566,9 +579,18 @@ button {
           transform: translateY(150%);
 }
 
+.gitHubCard .calenderContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .gitHubCard article {
+  display: inline-block;
   min-height: 12rem;
-  margin: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-top: -10%;
 }
 
 @-webkit-keyframes flyUp {
@@ -625,36 +647,53 @@ button {
 
 .skillsSection {
   padding: 2rem 0;
+  /* background-image: linear-gradient(var(--bgColor), var(--bgDark)); */
 }
 
 .contactSection {
-  padding-top: 4rem;
+  padding: 6rem 0 3rem 0;
   height: unset;
-  min-height: 100vh;
+}
+
+.contactSection .neomorphism {
+  padding: 1.2rem 2rem;
 }
 
 .contactSection .inner {
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.contactSection .formContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-width: 100%;
+  min-width: 20rem;
+  margin-right: 2rem;
 }
 
 .contactSection form {
   display: inline-block;
   /* padding: 1rem 0.2rem; */
   max-width: 100%;
+  width: 100%;
   text-align: left;
   position: relative;
 }
 
 .contactSection form * {
   border-color: rgba(0, 0, 0, 0.2) !important;
-  background-color: var(--bgColor);
+  /* background-color: var(--bgColor); */
 }
 
 .contactSection form .succesMessage {
   position: absolute;
   width: 100%;
   height: 6rem;
-  /* background-image: linear-gradient(transparent, purple ,transparent); */
 }
 
 .contactSection form .succesMessage h3 {
@@ -712,12 +751,11 @@ button {
 }
 
 .contactSection form textarea {
-  width: 44rem;
-  max-width: 44rem;
+  width: 100%;
   display: block;
   max-width: 100%;
-  border: 1px solid grey;
-  /* border-radius: 0.4rem; */
+  border: none;
+  background-color: var(--bgColor);
   padding: 0.2rem 0.4rem;
   margin: 0.4rem 0 1rem 0;
 }
@@ -746,32 +784,44 @@ button {
   margin: 0.4rem 0;
   display: block;
   width: 100%;
-  /* border-radius: 0.4rem; */
-  border: 1px solid grey;
+  border: none;
   padding: 0.4rem 0.4rem;
+  background-color: var(--bgColor);
 }
 
 .contactSection form #submitInput {
-  margin: 2.4rem auto 2rem auto;
-  /* display: block; */
-  background-color: #4f055c;
-  border: 0.1rem transparent;
-  color: #f0f0f0;
+  margin: 2rem 0 0.2rem 0;
   padding: 0.6rem 1.2rem;
   font-size: var(--mainFontSize);
   /* border-radius: 0.4rem; */
 }
 
 .contactSection .sectionHeader {
-  /* text-align: left; */
   margin-bottom: 1.4rem;
+  width: 100%;
 }
 
 .contactSection img {
   margin: 0 auto;
   display: block;
   max-width: 100%;
-  width: 44rem;
+  width: 100%;
+}
+
+.contactSection .aboutContainer {
+  width: 24rem;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contactSection .aboutContainer .aboutInner {
+  margin: auto 0;
 }
 
 .imageSlider {
@@ -818,7 +868,13 @@ button {
   }
   .projectItem .projectDescription {
     min-height: 12rem;
-    padding: 0.6rem 0.4rem 0.4rem 0.4rem;
+    padding: 0.6rem 0.8rem 0.4rem 0.8rem;
+  }
+  .projectItem .projectDescription .descriptionText {
+    margin: 1.2rem 0 2rem 0;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
   .projectItem .imageSlider,
   .projectItem .imgContainer {
@@ -831,7 +887,7 @@ button {
   .moreProjects:after {
     font-size: var(--h3FontSize);
     font-weight: bold;
-    color: #7610d6;
+    color: #ff006a;
     content: "LOAD MORE";
     text-align: center;
     line-height: 10rem;
@@ -880,6 +936,18 @@ button {
   }
   #portfolioSection .gitHubCard {
     min-height: 20rem !important;
+  }
+  #portfolioSection .gitHubCard article {
+    margin: 0;
+  }
+  #portfolioSection .gitHubCard .allLoadedGraphic {
+    display: block;
+  }
+  #portfolioSection .gitHubCard .allLoadedGraphic h1 {
+    margin: 0.2rem 0 0.4rem 0;
+  }
+  #portfolioSection .gitHubCard .allLoadedGraphic img {
+    max-width: 18rem;
   }
   .contactSection {
     padding-top: 0;

@@ -23,7 +23,7 @@ const ProjectsItem = ({ project }) => {
             onBlur={makeInactive}
             onMouseEnter={makeActive}
             onMouseLeave={makeInactive}
-            className="projectItem"
+            className="projectItem neomorphism"
         >
             {/* <ProjectImage image={images[0]} /> */}
             {/* <ImageSlider images={images} duration={1400}/> */}

@@ -9,7 +9,7 @@ const WelcomeSection = ({ scrollToPortfolio }) => {
                 <Logo/>
                 <h1>Kantemir Imamov</h1>
                 <h3>Full-Stack Developer</h3>
-                <button onClick={scrollToPortfolio} className="callToAction hoverScale">VIEW PROJECTS</button>
+                <button onClick={scrollToPortfolio} className="gradientButton">VIEW PROJECTS</button>
             </div>
         </section>
     )
