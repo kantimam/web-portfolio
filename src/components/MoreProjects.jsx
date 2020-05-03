@@ -13,9 +13,9 @@ const MoreProjects = ({ allLoaded, onClick }) => {
                     </div>
                     <div className="projectDescription">
                         <h1>LOAD MORE!</h1>
-                        <p>
+                        <p className="descriptionText">
                             I did more stuff... just click if you want to see it :)
-                    </p>
+                        </p>
                     </div>
                 </div>
             }

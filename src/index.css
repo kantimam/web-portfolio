@@ -20,7 +20,7 @@ a {
   --fadedBgColor: rgba(220, 220, 220, var(--bg-opacity));
   --mainFontSize: 1.2rem;
   --h1FontSize: 2.8rem;
-  --h3FontSize: 2rem;
+  --headerFontSize: 1.8rem;
   --navFontSize: 1.4rem;
   --navHeight: 3.2rem;
   --bgDark: rgb(38, 38, 38, 0.6);
@@ -249,10 +249,6 @@ header #myLogo {
   margin: 0.2rem;
 }
 
-.welcomeWrapper h3 {
-  font-size: var(--h3FontSize);
-}
-
 .welcomeWrapper #myLogo {
   -webkit-transform: scaleX(1.2);
           transform: scaleX(1.2);
@@ -275,7 +271,7 @@ header #myLogo {
   color: #f0f0f0;
   font-weight: bold;
   cursor: pointer;
-  font-size: var(--mainFontSize);
+  font-size: var(--navFontSize);
   -webkit-transition: 1.2s;
   transition: 1.2s;
 }
@@ -324,7 +320,7 @@ header #myLogo {
 
 .sectionHeader {
   text-align: left;
-  font-size: var(--h3FontSize);
+  font-size: var(--headerFontSize);
   color: rgba(0, 0, 0, calc(var(--bg-opacity)));
   font-weight: bold;
 }
@@ -400,7 +396,7 @@ header #myLogo {
 }
 
 .projectItem .projectDescription .projectTitle a {
-  font-size: var(--h3FontSize);
+  font-size: var(--headerFontSize);
   font-weight: bold;
   text-decoration: none;
   color: #ff006a;
@@ -482,7 +478,7 @@ header #myLogo {
 }
 
 .moreProjects .projectDescription h1 {
-  font-size: var(--h3FontSize);
+  font-size: var(--headerFontSize);
   color: #ff006a;
 }
 
@@ -531,7 +527,7 @@ header #myLogo {
 
 .gitHubCard h3 {
   color: #ff006a;
-  font-size: var(--h3FontSize);
+  font-size: var(--navFontSize);
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
   opacity: 0;
@@ -701,7 +697,6 @@ header #myLogo {
   color: #f0f0f0;
   border-radius: 0.6rem;
   padding: 0.4rem 2rem;
-  /* font-size: var(--h3FontSize); */
   font-weight: bold;
   -webkit-animation: fadeIn 0.4s ease-in-out;
           animation: fadeIn 0.4s ease-in-out;
@@ -761,7 +756,7 @@ header #myLogo {
 }
 
 .contactSection form label {
-  font-size: var(--mainFontSize);
+  font-size: var(--navFontSize);
   font-weight: bold;
 }
 
@@ -792,8 +787,6 @@ header #myLogo {
 .contactSection form #submitInput {
   margin: 2rem 0 0.2rem 0;
   padding: 0.6rem 1.2rem;
-  font-size: var(--mainFontSize);
-  /* border-radius: 0.4rem; */
 }
 
 .contactSection .sectionHeader {
@@ -820,8 +813,51 @@ header #myLogo {
           flex-direction: column;
 }
 
+.contactSection .aboutContainer h3 {
+  margin-bottom: 0.4rem;
+  font-size: var(--navFontSize);
+}
+
 .contactSection .aboutContainer .aboutInner {
-  margin: auto 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 2.4rem 0 auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contactSection .aboutContainer .aboutInner * {
+  margin-bottom: 0.6rem;
+}
+
+.contactSection .aboutContainer .aboutInner .aboutName {
+  font-size: var(--navFontSize);
+  font-weight: bold;
+}
+
+.contactSection .aboutContainer .aboutInner .mailLink {
+  margin-top: 2rem;
+}
+
+.contactSection .aboutContainer .aboutInner a {
+  font-weight: bold;
+  display: block;
+}
+
+.contactSection .aboutContainer .aboutInner .aboutGhLink {
+  margin-bottom: 2rem;
+}
+
+.contactSection .aboutContainer .aboutInner .currentStatus {
+  font-size: var(--navFontSize);
+  font-weight: bold;
+  margin-top: auto;
 }
 
 .imageSlider {
@@ -845,21 +881,14 @@ header #myLogo {
      object-fit: cover;
 }
 
-@media (max-width: 1020px) {
-  .App {
-    --mainFontSize: 1rem;
-  }
-  /* .projectItem {
-    .projectDescription {
-      height: 100%;
-      font-size: 1rem;
-    }
-  } */
-}
-
+/* @media (max-width: 1020px) {
+  .App {}
+} */
 @media (max-width: 840px) {
   .App {
-    --h3FontSize: 1.8rem;
+    --headerFontSize: 1.4rem;
+    --navFontSize: 1.2rem;
+    --mainFontSize: 1rem;
   }
   .projectItem {
     display: block;
@@ -885,12 +914,11 @@ header #myLogo {
             box-shadow: unset;
   }
   .moreProjects:after {
-    font-size: var(--h3FontSize);
+    padding: 0.8rem;
+    font-size: var(--headerFontSize);
     font-weight: bold;
     color: #ff006a;
     content: "LOAD MORE";
-    text-align: center;
-    line-height: 10rem;
   }
   .gitHubCard {
     min-height: 30rem;
@@ -902,12 +930,29 @@ header #myLogo {
   .welcomeWrapper h1 {
     font-size: 2.8rem !important;
   }
+  .contactSection .inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .contactSection .inner .aboutContainer,
+  .contactSection .inner .formContainer {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: unset;
+  }
+  .contactSection .inner .formContainer {
+    margin-top: 3.2rem;
+  }
 }
 
 @media (max-width: 450px) {
   .App {
     --h1FontSize: 1.8rem;
-    --h3FontSize: 1.4rem;
+    --headerFontSize: 1.2rem;
+    --navFontSize: 1rem;
   }
   header .mainIcon {
     margin-right: 0;

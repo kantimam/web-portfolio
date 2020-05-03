@@ -62,15 +62,15 @@ const ContactSection = forwardRef((props, ref) => {
                         }
 
                         <label className="required" htmlFor="message">message</label>
-                        <textarea 
-                            value={message} 
-                            onChange={(e) => setMessage(e.target.value)} 
-                            placeholder="would be happy to hear from you! :) " 
-                            id="message" 
+                        <textarea
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            placeholder="would be happy to hear from you! :) "
+                            id="message"
                             className="neomorphismInvert"
-                            name="message" 
-                            cols="30" 
-                            rows="10" 
+                            name="message"
+                            cols="30"
+                            rows="10"
                             required>
                         </textarea>
                         <div className="contactRow">
@@ -78,10 +78,10 @@ const ContactSection = forwardRef((props, ref) => {
                                 <label htmlFor="nameInput">name</label>
                                 <input
                                     value={name}
-                                    onChange={(e) => setName(e.target.value)} 
-                                    placeholder="let me know your name :)" 
-                                    type="text" 
-                                    name="name" 
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="let me know your name :)"
+                                    type="text"
+                                    name="name"
                                     id="nameInput"
                                     className="neomorphismInvert"
                                 />
@@ -106,14 +106,20 @@ const ContactSection = forwardRef((props, ref) => {
                 </div>
                 <div className="aboutContainer neomorphism">
                     <h3>lets connect</h3>
+                    <p>can i be of service or just want to chat?</p>
                     <div className="aboutInner">
-                        <p>mail: kantemir.imam@gmail.com</p>
-
+                        <p className="aboutName">Kantemir Imamov</p>
+                        <p >Software Engineer with a passion for graphics and novel ideas based in Berlin.</p>
+                        <a className="mailLink" href="mailto:kantemir.imam@gmail.com">kantemir.imam@gmail.com</a>
+                        <a className="aboutGhLink" href="https://github.com/kantimam" target="_blank" rel="noopener noreferrer">kant imam github</a>
+                        <div className="currentStatus">
+                            currently available
+                        </div>
                     </div>
                 </div>
             </div>
 
-        </section>
+        </section >
     )
 })
 
