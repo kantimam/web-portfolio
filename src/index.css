@@ -11,6 +11,11 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
 }
 
 .App {
@@ -42,34 +47,12 @@ a {
   text-align: center;
 }
 
-.contentDiv {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-weight: bold;
-  font-size: 4rem;
-  color: #f0f0f0;
-}
-
 #metaBallsWrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: opacity 2s;
-  transition: opacity 2s;
-}
-
-.fadeOutMetaBalls {
-  opacity: 0;
 }
 
 main {
@@ -121,10 +104,6 @@ header ul {
   display: flex;
 }
 
-header li {
-  list-style-type: none;
-}
-
 header .mainIcon,
 header li {
   font-weight: bold;
@@ -143,18 +122,14 @@ header #myLogo {
           transform: scaleX(1.2);
 }
 
-.iconLink {
-  text-decoration: none;
-}
-
 .iconLink img {
   width: 100%;
   height: auto;
 }
 
-#welcomeSection h1,
-#welcomeSection h2,
-#welcomeSection h3 {
+h1,
+h2,
+h3 {
   color: #f0f0f0;
 }
 
@@ -568,6 +543,7 @@ header #myLogo {
 }
 
 .gitHubCard img {
+  z-index: 2;
   max-width: 50%;
   width: 32rem;
   -webkit-transform: translateY(150%);
@@ -861,7 +837,6 @@ header #myLogo {
 
 .imageSlider {
   position: relative;
-  /* width: 40rem; */
   width: 100%;
 }
 
@@ -869,7 +844,6 @@ header #myLogo {
   width: 100%;
   height: 0;
   padding-bottom: 56.5%;
-  /* background-color: red; */
 }
 
 .imageSlider .imageSliderContainer img {
