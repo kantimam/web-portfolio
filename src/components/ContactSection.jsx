@@ -1,5 +1,5 @@
 import React, { forwardRef, memo, useState } from 'react'
-import contact from '../images/contact.svg';
+/* import contact from '../images/contact.svg'; */
 
 const ContactSection = forwardRef((props, ref) => {
     const [email, setEmail] = useState("");

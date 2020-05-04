@@ -78,7 +78,7 @@ header {
   display: block;
   height: 3.2rem;
   position: fixed;
-  z-index: 2;
+  z-index: 5;
 }
 
 header .inner {
