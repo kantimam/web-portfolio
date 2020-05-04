@@ -1,4 +1,4 @@
-export const frag: string= `
+export const frag: string = `
 
 precision mediump float;
 const int <ORBCOUNT=0>;
@@ -25,7 +25,7 @@ vec3 getColSum(vec2 uv){
         sumColor+=vec3(distRadius*vec3(u_orbData[6*i+3], u_orbData[6*i+4], u_orbData[6*i+5]));
     }
     //return (sumColor / float(ORBCOUNT));
-    return smoothstep(0.02,1.2,sumColor / float(ORBCOUNT));
+    return smoothstep(0.14, 1.2,sumColor / float(ORBCOUNT));
 
 }
 
@@ -35,7 +35,7 @@ void main() {
 
 `
 
-export const vert: string= `
+export const vert: string = `
 precision mediump float;
 attribute vec4 a_position;
 
