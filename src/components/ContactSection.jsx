@@ -105,7 +105,7 @@ const ContactSection = forwardRef((props, ref) => {
                     </form>
                 </div>
                 <div className="aboutContainer neomorphism">
-                    <h3>lets connect</h3>
+                    <h3>let's connect</h3>
                     <p>Can I be of service or just want to chat?</p>
                     <div className="aboutInner">
                         <p className="aboutName">Kantemir Imamov</p>
