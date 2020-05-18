@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import ProjectDescription from './ProjectDescription'
-import ProjectImage from './ProjectImage'
 import ImageSlider from './ImageSlider';
 
 
@@ -25,9 +24,7 @@ const ProjectsItem = ({ project }) => {
             onMouseLeave={makeInactive}
             className="projectItem neomorphism"
         >
-            {/* <ProjectImage image={images[0]} /> */}
-            {/* <ImageSlider images={images} duration={1400}/> */}
-            <a className="imgSliderLink" href={project.homepage}  target="_blank" rel="noopener noreferrer">
+            <a className="imgSliderLink" href={project.homepage} target="_blank" rel="noopener noreferrer">
                 <ImageSlider active={active} images={imagePaths} duration={2400} />
             </a>
             <ProjectDescription {...project} />
