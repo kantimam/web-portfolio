@@ -8,12 +8,12 @@ interface Props {
 }
 
 export default class ImageSlider extends Component<Props, any> {
-    transitionInterval: number | null = null;
+    transitionInterval: null | NodeJS.Timeout = null;
     activeImage = 0;
     constructor(props: Props) {
         super(props)
         if (!props.images || !props.images.length) {
-            throw new Error("prop images is required and needs to be an array of image strings")
+            throw new TypeError("prop images is required and needs to be an array of image strings")
         }
         this.state = {
             topImage: this.props.images[0],
@@ -49,9 +49,11 @@ export default class ImageSlider extends Component<Props, any> {
             this.finishTransition();
             if (this.props.active && !this.transitionInterval) this.switchImage();
         }
-
     }
 
+    componentDidMount() {
+        if (this.props.active) return this.switchImage();
+    }
 
     componentWillUnmount() {
         this.stopTransition();

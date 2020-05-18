@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check state when active 1`] = `
+<div
+  className="imageSlider"
+>
+  <div
+    className="imageSliderContainer"
+  >
+    <img
+      alt="bottomImage"
+      src="https://i.imgur.com/TCMSH9Z.png"
+      style={
+        Object {
+          "opacity": 0,
+        }
+      }
+    />
+    <img
+      alt="topImage"
+      src="https://i.imgur.com/rtA9EKz.jpg"
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`check state when inactive 1`] = `
+<div
+  className="imageSlider"
+>
+  <div
+    className="imageSliderContainer"
+  >
+    <img
+      alt="topImage"
+      src="https://i.imgur.com/rtA9EKz.jpg"
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`handle 0 or 1 image 1`] = `
+<div>
+  <div
+    class="imageSlider"
+  >
+    <div
+      class="imageSliderContainer"
+    >
+      <img
+        alt="topImage"
+        src="https://i.imgur.com/TCMSH9Z.png"
+        style="opacity: 1;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`handle 0 or 1 image 2`] = `
+<div>
+  <div
+    class="imageSlider"
+  >
+    <div
+      class="imageSliderContainer"
+    >
+      <img
+        alt="topImage"
+        src="https://i.imgur.com/TCMSH9Z.png"
+        style="opacity: 1;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`handle multiple images 1`] = `
+<div>
+  <div
+    class="imageSlider"
+  >
+    <div
+      class="imageSliderContainer"
+    >
+      <img
+        alt="topImage"
+        src="https://i.imgur.com/rtA9EKz.jpg"
+        style="opacity: 1;"
+      />
+    </div>
+  </div>
+</div>
+`;
