@@ -3,15 +3,14 @@ import MetaBallsWrapper from './components/MetaBallsWrapper';
 import PortfolioSection from './components/PortfolioSection';
 import WelcomeSection from './components/WelcomeSection';
 import Nav from './components/Nav';
-import ImageSlider from './components/ImageSlider';
 import ContactSection from './components/ContactSection';
-import SkillsSection from './components/SkillsSection';
 
 
 
 export default class App extends Component {
   portfolioSectionRef = React.createRef(null);
   contactSectionRef = React.createRef(null);
+  lastScroll = Date.now();
   state = {
     showBG: true,
     scrollPercent: 0,
@@ -27,7 +26,10 @@ export default class App extends Component {
   }
 
   handleScroll = () => {
-
+    /* throttle onscroll not a problem when using the scrollbar but 12 events everytime you touch the mousewheel is too much */
+    const now = Date.now();
+    if (now - this.lastScroll < 50) return;
+    this.lastScroll = now;
     const scrollP = window.scrollY / window.innerHeight;
 
     this.setState({ scrollPercent: scrollP });

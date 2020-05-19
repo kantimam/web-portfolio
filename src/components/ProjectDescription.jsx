@@ -11,19 +11,19 @@ const icons={
     js: jsIcon
 } */
 
-const ProjectDescription = ({ name="", description="", technologies=["react", "node"], id, homepage="", repository="", packageLink="" }) => {
+const ProjectDescription = ({ name = "", description = "", technologies = ["react", "node"], id, homepage = "", repository = "", packageLink = "" }) => {
     return (
         <div className="projectDescription">
             <div className="projectTitle">
-                <a href={homepage}  target="_blank" rel="noopener noreferrer">{name}</a>
+                <a href={homepage} target="_blank" rel="noopener noreferrer">{name}</a>
                 <a className="githubLink iconLink" href={repository} target="_blank" rel="noopener noreferrer">
-                    <GithubIcon/>
+                    <GithubIcon />
                 </a>
             </div>
             <p className="descriptionText">{description}</p>
             <div className="techStackList">
-                {technologies.map(i =><IconOrText name={i} key={`item_${id}_${i}`}/>)}
-                <NpmIcon packageLink={packageLink}/> 
+                {technologies.map(i => <IconOrText name={i} key={`item_${id}_${i}`} />)}
+                <NpmIcon packageLink={packageLink} />
             </div>
         </div>
     )
@@ -32,11 +32,7 @@ const ProjectDescription = ({ name="", description="", technologies=["react", "n
 export default ProjectDescription
 
 
-const IconOrText=({name})=>{
+const IconOrText = ({ name }) => {
     return <div>{`<${name}/>`}</div>
-    /* const icon=icons[name.toLowerCase()];
-    if(icon) return (
-        <img className={`tech_icon_${name}`} src={icon} alt={name}/>
-    )
-    return <div>{name}</div> */
+
 }

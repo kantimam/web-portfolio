@@ -1,6 +1,6 @@
 import React from 'react'
 import GithubCard from './GithubCard'
-import space from '../images/space.jpg';
+import space from '../images/space-resized.jpg';
 
 const MoreProjects = ({ allLoaded, onClick }) => {
 
