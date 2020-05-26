@@ -24,11 +24,8 @@ const ContactSection = forwardRef((props, ref) => {
             },
             body: encode({ "form-name": "contact", "name": name, "email": email, "message": message })
         }).then(res =>
-            res.json()
-        ).then(_data => {
             createMessage(true, "succesfully send")
-        })
-            .catch(_e => createMessage(false, "failed to send"))
+        ).catch(_e => createMessage(false, "failed to send"))
 
     }
 
