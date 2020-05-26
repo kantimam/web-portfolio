@@ -10,15 +10,14 @@ const ContactSection = forwardRef((props, ref) => {
 
     const sendMail = (event) => {
         event.preventDefault();
-        const url = process.env.REACT_APP_API_BASE + "/sendmail";
 
         var urlencoded = new URLSearchParams();
+        urlencoded.append("form-name", "contact");
         urlencoded.append("email", email);
         urlencoded.append("message", message);
         urlencoded.append("name", name);
-        console.log(urlencoded)
 
-        fetch(url, {
+        fetch("/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
