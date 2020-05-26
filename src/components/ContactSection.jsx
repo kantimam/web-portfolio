@@ -93,7 +93,7 @@ const ContactSection = forwardRef((props, ref) => {
                                     onChange={e => setEmail(e.target.value)}
                                     placeholder="some way to contact you"
                                     type="email"
-                                    name="mail"
+                                    name="email"
                                     id="emailInput"
                                     required
                                 />
