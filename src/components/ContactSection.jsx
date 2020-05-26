@@ -1,5 +1,11 @@
 import React, { forwardRef, memo, useState } from 'react'
-/* import contact from '../images/contact.svg'; */
+
+
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+}
 
 const ContactSection = forwardRef((props, ref) => {
     const [email, setEmail] = useState("");
@@ -11,24 +17,18 @@ const ContactSection = forwardRef((props, ref) => {
     const sendMail = (event) => {
         event.preventDefault();
 
-        var urlencoded = new URLSearchParams();
-        urlencoded.append("form-name", "contact");
-        urlencoded.append("email", email);
-        urlencoded.append("message", message);
-        urlencoded.append("name", name);
-
         fetch("/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: urlencoded
+            body: encode({ "form-name": "contact", "name": name, "email": email, "message": message })
         }).then(res =>
             res.json()
         ).then(_data => {
             createMessage(true, "succesfully send")
         })
-            .catch(_e => createMessage(false, "failed to send send"))
+            .catch(_e => createMessage(false, "failed to send"))
 
     }
 
