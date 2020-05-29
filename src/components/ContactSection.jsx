@@ -59,6 +59,7 @@ const ContactSection = forwardRef((props, ref) => {
 
                         <label className="required" htmlFor="message">message</label>
                         <textarea
+                            data-testid="message"
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             placeholder="would be happy to hear from you! :) "
@@ -73,6 +74,7 @@ const ContactSection = forwardRef((props, ref) => {
                             <div>
                                 <label htmlFor="nameInput">name</label>
                                 <input
+                                    data-testid=""
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     placeholder="let me know your name :)"
@@ -85,6 +87,7 @@ const ContactSection = forwardRef((props, ref) => {
                             <div>
                                 <label className="required" htmlFor="emailInput">email</label>
                                 <input
+                                    data-testid="mail"
                                     className="neomorphismInvert"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
